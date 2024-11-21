@@ -88,9 +88,12 @@
 @layer base {
   * {
     @apply border-border;
-    @apply box-border
+    @apply box-border;
   }
   body {
     @apply bg-background text-foreground;
+    span {
+      @apply tracking-wide;
+    }
   }
 }

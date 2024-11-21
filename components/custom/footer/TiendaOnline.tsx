@@ -9,7 +9,7 @@ import {
 const TiendaOnlineLinks = () => (
   <ul className="text-xs">
     {[
-      { href: '/', text: 'Contactanos' },
+      { href: '/contact', text: 'Contactanos' },
       { href: '/', text: 'Preguntas frecuentes' },
       { href: '/', text: 'Cambios y devoluciones' },
       { href: '/', text: 'Medios de pago' },

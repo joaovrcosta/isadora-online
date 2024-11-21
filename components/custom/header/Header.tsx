@@ -7,6 +7,12 @@ import HeaderContent from './HeaderContent';
 import { useEffect, useState } from 'react';
 import { cn } from '@/lib/utils';
 import { usePathname } from 'next/navigation';
+import {
+  Dialog,
+  DialogContent,
+  DialogTrigger,
+} from '@/components/shadcn/ui/dialog';
+import { PromotionalModal } from '@/components/modalds/promotionalModal';
 
 const MOCK_PROMOTIONS = [
   'EXCLUSIVO ONLINE 6 CUOTAS SIN INTERÉS EN COMPRAS SUPERIORES A $60.000',
@@ -61,6 +67,7 @@ const Header = () => {
           pathName !== '/'
           ? 'border-b-0 bg-white text-black'
           : 'bg-transparent text-white',
+        isScrolled ? 'shadow-md' : '',
       )}
     >
       <Marquee marqueeTexts={MOCK_PROMOTIONS} />
@@ -79,16 +86,19 @@ const Header = () => {
 
       <div
         className={cn(
-          'fixed -left-[86px] bottom-[45%] z-50 flex h-[40px] w-[210px] -rotate-90 cursor-pointer flex-row items-center justify-center gap-2 border-none bg-[rgb(255,184,184)] pl-2.5 text-[13px] uppercase text-black shadow-md',
+          'bg-lightPink fixed -left-[86px] bottom-[45%] z-50 flex h-[40px] w-[210px] -rotate-90 cursor-pointer flex-row items-center justify-center gap-2 border-none pl-2.5 text-[13px] uppercase text-black shadow-md',
           !isToastyButtonVisible && 'hidden',
         )}
       >
         <button className="w-4" onClick={() => setIsToastyButtonVisible(false)}>
           X
         </button>
-        <button className="h-full flex-shrink flex-grow bg-red-200 text-[11px] tracking-widest">
-          DESCUBRÍ ISA CLUB
-        </button>
+
+        <Dialog>
+          <DialogTrigger>DESCUBRÍ ISA CLUB</DialogTrigger>
+
+          <PromotionalModal />
+        </Dialog>
       </div>
     </header>
   );

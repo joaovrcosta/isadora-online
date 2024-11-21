@@ -74,7 +74,7 @@ const SearchBar: React.FC<SearchBarProps> = ({
 
       <SheetOverlay className="top-20 bg-white/75 md:top-24" />
 
-      <SheetContent side="top" className="top-20 px-5 pb-10 pt-6 md:top-24">
+      <SheetContent side="top" className="top-20 px-12 pb-10 pt-6 md:top-24">
         <div className="relative pb-14">
           <div className="absolute left-0 top-0 flex h-[46px] w-[46px] items-center justify-center leading-[46px]">
             <svg
