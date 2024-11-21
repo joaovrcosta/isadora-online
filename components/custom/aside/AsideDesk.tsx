@@ -8,7 +8,7 @@ import {
 export function AsideDesk() {
   return (
     <div className="flex">
-      <aside className="w-64">
+      <aside className="w-full">
         <h2 className="text-md mb-4 font-light">Filtrar por:</h2>
         <Accordion type="single" collapsible>
           {/* Filtro de Preço */}

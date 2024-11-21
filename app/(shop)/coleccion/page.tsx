@@ -11,7 +11,7 @@ export default function CollectionPage() {
   return (
     <div>
       <div>
-        <div className="mb-10 flex w-full items-center justify-end gap-2">
+        <div className="mb-10 hidden w-full items-center justify-end md:flex">
           <span className="text-xs">ORDENAR POR:</span>
           <Select>
             <SelectTrigger className="w-[180px]">
@@ -25,7 +25,7 @@ export default function CollectionPage() {
           </Select>
         </div>
       </div>
-      <div className="flex flex-wrap items-center justify-around">
+      <div className="mt-5 grid grid-cols-2 items-center justify-center gap-4 lg:grid-cols-4">
         <ProductItem />
         <ProductItem />
         <ProductItem />

@@ -9,7 +9,7 @@ import {
 
 export function CustomBreadCrumbs() {
   return (
-    <div className="py-5">
+    <div className="hidden py-5 md:block lg:block">
       <Breadcrumb>
         <BreadcrumbList>
           <BreadcrumbItem>

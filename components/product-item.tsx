@@ -12,24 +12,23 @@ export function ProductItem() {
 
   return (
     <div
-      className="group relative max-w-[350px]"
+      className="group relative w-full max-w-[350px]"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Imagem do produto */}
-      <div className="relative">
+      <div className="relative aspect-square w-full">
         <Image
           src={isHovered ? BagImage_2 : BagImage}
           alt="Bag"
-          width={350}
-          height={450}
-          quality={100}
-          className="transition-all duration-300"
+          fill
+          sizes="(max-width: 768px) 100vw, 350px"
+          className="object-cover transition-all duration-300"
         />
 
         {/* Botão "Adicionar ao Carrinho" */}
         <button
-          className={`absolute bottom-0 left-0 w-full bg-[rgb(255,184,184)] py-3 text-sm font-medium text-white transition-opacity duration-300 ${
+          className={`absolute bottom-0 left-0 hidden w-full bg-[rgb(255,184,184)] py-3 text-sm font-medium text-white transition-opacity duration-300 lg:block ${
             isHovered ? 'opacity-100' : 'opacity-0'
           }`}
         >
