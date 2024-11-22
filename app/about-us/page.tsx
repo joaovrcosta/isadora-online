@@ -16,7 +16,7 @@ import Image from 'next/image';
 
 export default function AboutUsPage() {
   return (
-    <div className="mt-16 flex flex-col px-4 md:flex lg:flex lg:px-0">
+    <div className="mt-16 flex flex-col px-4 md:flex md:px-0 lg:flex lg:px-0">
       <section>
         <div>
           {/* Imagem para desktop */}
@@ -40,7 +40,7 @@ export default function AboutUsPage() {
           <Image
             src={banner2}
             alt="Banner"
-            className="hidden h-auto min-h-[300px] w-full min-w-[450px] object-contain md:block lg:block"
+            className="hidden h-auto min-h-[300px] w-full min-w-[385px] object-contain md:block lg:block"
           />
 
           {/* Imagem para mobile */}
@@ -51,9 +51,10 @@ export default function AboutUsPage() {
           />
         </div>
 
+        {/* <div className="hidden w-[8.33%] lg:block"></div> */}
         <div className="m-auto w-full md:w-1/2">
-          <div className="max-w-[560px] flex-1 flex-col items-center justify-center space-y-4 p-8 text-left tracking-[2px] lg:p-0">
-            <p className="text-sm font-bold">
+          <div className="max-w-[560px] flex-1 flex-col items-center justify-center space-y-4 p-8 text-left tracking-[2px] lg:mx-20 lg:p-0">
+            <p className="text-sm font-extrabold">
               Somos una marca llena de historias para contar y mundos a los que
               transportarnos
             </p>
@@ -125,7 +126,11 @@ export default function AboutUsPage() {
       <section className="flex flex-col md:flex-row lg:flex-row">
         <div>
           {/* Imagem para desktop */}
-          <Image src={banner4} alt="Banner" className="hidden lg:block" />
+          <Image
+            src={banner4}
+            alt="Banner"
+            className="hidden md:block lg:block"
+          />
 
           {/* Imagem para mobile */}
           <Image
@@ -138,7 +143,7 @@ export default function AboutUsPage() {
         <div className="hidden w-[8.33%] lg:block"></div>
         <div className="m-auto">
           <div className="flex-1 flex-col items-center justify-center space-y-4 p-8 text-left tracking-[2px]">
-            <p className="text-sm font-bold">Nuestros desafios</p>
+            <p className="text-sm font-extrabold">Nuestros desafios</p>
             <p className="text-xs">Anticiparnos a lo que te gusta.</p>
             <p className="text-xs">Llegar a las emociones y sentidos</p>
             <p className="text-xs">
