@@ -1,25 +1,15 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { MapPin } from 'lucide-react';
 
 const FooterTop: React.FC = () => {
   return (
     <div className="">
       <Link href="/locales">
-        <div className="relative min-h-16 w-full transition-opacity duration-300 hover:opacity-75">
-          <Image
-            src="/others/bn-tu-tienda.webp"
-            alt="Tu tienda"
-            height={120}
-            width={1920}
-            className="hidden md:block"
-          />
-          <Image
-            src="/others/bn-tu-tienda.webp"
-            alt="Tu tienda"
-            fill
-            className="h-60 object-cover md:hidden"
-          />
+        <div className="relative flex min-h-16 w-full items-center justify-center space-x-3 bg-black text-white transition-opacity duration-300 hover:opacity-75">
+          <MapPin size={20} />
+          <h2>Encontra tu tienda más cercana</h2>
         </div>
       </Link>
 
