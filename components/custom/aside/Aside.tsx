@@ -98,7 +98,7 @@ const Aside: React.FC<AsideProps> = ({ className }) => {
 
   return (
     <aside className={cn(className)}>
-      <div className="m-0 bg-white md:max-w-72">
+      <div className="w-full">
         <div className="m-0 flex md:hidden lg:hidden">
           <Sheet open={isSheetFilterOpen} onOpenChange={setIsSheetFilterOpen}>
             {/** Filtrado por */}

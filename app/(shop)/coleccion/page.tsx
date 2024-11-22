@@ -11,11 +11,14 @@ export default function CollectionPage() {
   return (
     <div>
       <div>
-        <div className="mb-10 hidden w-full items-center justify-end md:flex">
-          <span className="text-xs">ORDENAR POR:</span>
+        <div className="mb-10 hidden w-full items-center justify-end gap-2 md:flex">
+          <span className="text-xs tracking-[1px]">ORDENAR POR:</span>
           <Select>
             <SelectTrigger className="w-[180px]">
-              <SelectValue placeholder="Mais relevantes" />
+              <SelectValue
+                placeholder="Mais relevantes"
+                className="placeholder:tracking-[2px]"
+              />
             </SelectTrigger>
             <SelectContent>
               <SelectItem value="light">Light</SelectItem>
@@ -25,7 +28,7 @@ export default function CollectionPage() {
           </Select>
         </div>
       </div>
-      <div className="mt-5 grid grid-cols-2 items-center justify-center gap-4 lg:grid-cols-4">
+      <div className="mt-5 grid grid-cols-2 items-center justify-center gap-3 lg:grid-cols-4">
         <ProductItem />
         <ProductItem />
         <ProductItem />

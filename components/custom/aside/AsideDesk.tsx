@@ -5,16 +5,19 @@ import {
   AccordionTrigger,
 } from '@/components/shadcn/ui/accordion';
 
-export function AsideDesk() {
+export function AsideDesk({ className = '' }) {
   return (
-    <div className="flex">
+    <div className={`flex ${className}`}>
       <aside className="w-full">
-        <h2 className="text-md mb-4 font-light">Filtrar por:</h2>
+        <h2 className="text-md mb-4 text-sm font-medium tracking-[2px]">
+          Filtrar por:
+        </h2>
+        <hr className="border-t border-gray-200" />
+
         <Accordion type="single" collapsible>
-          {/* Filtro de Preço */}
           <AccordionItem value="price">
             <AccordionTrigger>
-              <span className="text-xs">PREÇO</span>
+              <span className="text-[11px] text-xs tracking-[2px]">PREÇO</span>
             </AccordionTrigger>
             <AccordionContent>
               <div className="space-y-2">
@@ -40,10 +43,9 @@ export function AsideDesk() {
             </AccordionContent>
           </AccordionItem>
 
-          {/* Filtro de Cor */}
           <AccordionItem value="color">
             <AccordionTrigger>
-              <span className="text-xs">COR</span>
+              <span className="text-[11px] text-xs tracking-[2px]">COR</span>
             </AccordionTrigger>
             <AccordionContent>
               <div className="space-y-2">

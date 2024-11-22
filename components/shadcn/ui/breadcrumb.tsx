@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Slot } from '@radix-ui/react-slot';
-import { ChevronRight, MoreHorizontal } from 'lucide-react';
+import { ChevronRight, MoreHorizontal, Slash } from 'lucide-react';
 
 import { cn } from '@/lib/utils';
 
@@ -51,7 +51,7 @@ const BreadcrumbLink = React.forwardRef<
     <Comp
       ref={ref}
       className={cn(
-        'text-xs transition-colors hover:text-foreground',
+        'text-gray200 text-[11px] tracking-[2px] transition-colors hover:text-foreground',
         className,
       )}
       {...props}
@@ -69,7 +69,10 @@ const BreadcrumbPage = React.forwardRef<
     role="link"
     aria-disabled="true"
     aria-current="page"
-    className={cn('text-xs font-normal text-foreground', className)}
+    className={cn(
+      'text-gray200 text-[11px] tracking-[2px] transition-colors hover:text-foreground',
+      className,
+    )}
     {...props}
   />
 ));
@@ -83,10 +86,14 @@ const BreadcrumbSeparator = ({
   <li
     role="presentation"
     aria-hidden="true"
-    className={cn('[&>svg]:h-3.5 [&>svg]:w-3.5', className)}
+    className={cn('text-gray200 [&>svg]:h-3.5 [&>svg]:w-3.5', className)}
     {...props}
   >
-    {children ?? <ChevronRight />}
+    {children ?? (
+      <>
+        <span className="text-[8px]">/</span>
+      </>
+    )}
   </li>
 );
 BreadcrumbSeparator.displayName = 'BreadcrumbSeparator';

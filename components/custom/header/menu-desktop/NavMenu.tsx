@@ -25,10 +25,10 @@ import {
 import Image from 'next/image';
 
 const hoverBorderBottomStyle =
-  "relative after:absolute after:bottom-[0.5px] after:left-0 after:h-[1px] after:w-full after:origin-left after:scale-x-0 after:bg-black after:transition-transform after:duration-500 after:content-[''] hover:after:scale-x-100";
+  "relative after:absolute after:bottom-[0.5px] after:left-0 after:h-[1px] after:w-full after:origin-left after:scale-x-0 after:bg-black after:transition-transform after:duration-500 after:content-[''] hover:after:scale-x-100 tracking-[2px]";
 
 const styleMenuLink =
-  'tracking-widest uppercase bg-transparent px-1 py-0 text-[10px] font-normal text-inherit hover:!bg-transparent focus:outline-none focus:text-inherit focus:bg-inherit xl:pb-1';
+  'uppercase bg-transparent px-1 py-0 text-[10px] font-normal text-inherit hover:!bg-transparent focus:outline-none focus:text-inherit focus:bg-inherit xl:pb-1';
 
 interface NavMenuProps {
   className?: string;
@@ -47,7 +47,7 @@ const NavMenu: React.FC<NavMenuProps> = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <NavigationMenuList className="gap-9">
+      <NavigationMenuList className="gap-10">
         <div className={hoverBorderBottomStyle}>
           <Link
             href="/"
@@ -62,7 +62,7 @@ const NavMenu: React.FC<NavMenuProps> = ({
                 'font-semibold',
               )}
             >
-              <span>NEW IN</span>
+              <span className="tracking-[2px]">NEW IN</span>
             </NavigationMenuLink>
           </Link>
         </div>

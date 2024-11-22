@@ -21,6 +21,7 @@ const config: Config = {
       },
       colors: {
         lightPink: 'rgb(255,184,184)',
+        gray200: '#999',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {

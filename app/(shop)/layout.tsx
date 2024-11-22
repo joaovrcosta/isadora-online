@@ -42,9 +42,9 @@ export default function DashboardLayout({
       <section className="relative z-10 md:flex-nowrap md:pl-12 md:pr-8 md:pt-0 lg:mt-32 lg:flex-col xl:mt-24">
         <div>
           <CustomBreadCrumbs />
-          <div className="flex flex-col md:flex-row md:space-x-16 lg:flex-row lg:space-x-20">
-            <div className="lg:flex">
-              <div className="hidden md:block lg:block">
+          <div className="flex w-full flex-col md:flex-row md:gap-20 lg:flex-row lg:gap-12">
+            <div className="lg:flex lg:w-[20%]">
+              <div className="hidden w-full md:block lg:block">
                 <div>
                   <h1 className="mb-8 text-left text-4xl font-normal capitalize tracking-widest">
                     {pathName.replaceAll(/[\/-]/gi, (match) =>
@@ -52,12 +52,12 @@ export default function DashboardLayout({
                     )}
                   </h1>
                 </div>
-                <AsideDesk />
+                <AsideDesk className="sticky top-40 mb-8" />
               </div>
               <Aside className="sticky top-20 z-50 order-first min-h-10 w-full flex-grow basis-full pr-[2%] md:top-44 md:mt-20 md:h-fit md:w-1/5 md:basis-[20%] lg:hidden" />
             </div>
 
-            <main className="relative w-full flex-grow basis-auto overflow-hidden px-4 pb-10 md:min-h-80 md:w-4/5 md:px-0 md:pl-1">
+            <main className="relative w-full basis-auto overflow-hidden px-4 pb-10 md:min-h-80">
               {children}
             </main>
           </div>
