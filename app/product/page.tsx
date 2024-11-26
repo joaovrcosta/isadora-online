@@ -16,13 +16,13 @@ const images = [productImage1, productImage2, productImage3, productImage4];
 
 export default function ProductPage() {
   return (
-    <div className="flex flex-col items-center justify-center lg:flex-row">
+    <div className="flex flex-col items-center justify-center md:mt-24 lg:mt-12 lg:flex-row">
       <div className="flex flex-col md:flex-row lg:flex-row">
         {/* Coluna de miniaturas à esquerda */}
         <ProductImages images={images} />
 
         {/* Detalhes do produto */}
-        <section className="ml-8 flex h-full max-w-[760px] flex-col justify-start">
+        <section className="md:lg-8 ml-0 flex h-full max-w-[760px] flex-col justify-start px-4 lg:ml-8">
           <div className="flex items-center justify-between">
             <div className="mb-4 flex items-center gap-2">
               <span className="text-[11px] tracking-[2px] text-gray-300">
@@ -48,12 +48,14 @@ export default function ProductPage() {
             </div>
           </div>
 
-          <h1 className="mb-4 text-[22px] font-bold tracking-[2px] text-gray-900">
+          <h1 className="mb-4 text-[14px] font-normal tracking-[2px] text-gray-900 md:text-[22px] md:font-bold lg:text-[22px] lg:font-bold">
             Clutch con correa de cadena
           </h1>
 
-          <div className="mb-6 max-w-[456px] border-b border-gray-200 pb-10 text-lg text-gray-900">
-            <span className="tracking-[2px]">$ 59.000</span>
+          <div className="mb-6 max-w-[456px] border-b border-gray-200 pl-2 text-lg text-gray-900 md:pb-10 lg:pb-10">
+            <span className="hidden tracking-[2px] md:block lg:block">
+              $ 59.000
+            </span>
           </div>
 
           <div className="mb-6 space-y-2">
@@ -69,13 +71,13 @@ export default function ProductPage() {
             </button>
           </div>
 
-          <Button className="mb-16 mt-4 h-[50px] w-[250px] rounded-none text-[16px]">
+          <Button className="mb-16 mt-4 hidden h-[50px] w-[250px] rounded-none text-[16px] md:block lg:block">
             ADICIONAR AO CARRINHO
           </Button>
 
           <div className="space-y-6">
             <div className="flex items-center space-x-4">
-              <div>
+              <div className="min-w-[45px]">
                 <Image
                   src={envioImg}
                   width={45}
@@ -87,7 +89,7 @@ export default function ProductPage() {
                 <h4 className="text-[11px] font-semibold tracking-[2px] text-lightPink">
                   RETIRO Y ENVÍO GRATIS
                 </h4>
-                <p className="text-[11px] tracking-[2px] text-gray-600">
+                <p className="text-[11px] leading-[20px] tracking-[2px] text-gray-600">
                   Retira gratis en nuestras tiendas o envío gratis en compras
                   mayores a $30.000
                 </p>
@@ -95,7 +97,7 @@ export default function ProductPage() {
             </div>
 
             <div className="flex items-center space-x-4">
-              <div>
+              <div className="min-w-[45px]">
                 <Image
                   src={cambiosImg}
                   width={45}
@@ -107,7 +109,7 @@ export default function ProductPage() {
                 <h4 className="text-[11px] font-semibold tracking-[2px] text-lightPink">
                   CAMBIOS Y DEVOLUCIONES
                 </h4>
-                <p className="text-[11px] tracking-[2px] text-gray-600">
+                <p className="text-[11px] leading-[20px] tracking-[2px] text-gray-600">
                   ¿Dudas sobre tu elección? Tenes hasta 6 meses para cambiar tu
                   compra y hasta 15 días de devolución.
                 </p>
@@ -115,9 +117,9 @@ export default function ProductPage() {
             </div>
 
             <div className="flex items-center space-x-4">
-              <div>
+              <div className="min-w-[45px]">
                 <Image
-                  src={cambiosImg}
+                  src={logoTargeta}
                   width={45}
                   height={45}
                   alt="Cambios y devoluciones"
@@ -125,16 +127,28 @@ export default function ProductPage() {
               </div>
               <div>
                 <h4 className="text-[11px] font-semibold tracking-[2px] text-lightPink">
-                  CAMBIOS Y DEVOLUCIONES
+                  CUOTAS SIN INTERÉS
                 </h4>
-                <p className="text-[11px] tracking-[2px] text-gray-600">
-                  ¿Dudas sobre tu elección? Tenes hasta 6 meses para cambiar tu
-                  compra y hasta 15 días de devolución.
+                <p className="text-[11px] leading-[20px] tracking-[2px] text-gray-600">
+                  Pagá con Visa, MasterCard, Mercado Pago y Naranja plan Z en 3
+                  cuotas sin interés en compras superiores a $30.000 y 6 cuotas
+                  sin interés en compras superiores a $60.000.
                 </p>
               </div>
             </div>
           </div>
         </section>
+      </div>
+
+      <div className="fixed bottom-0 left-0 right-0 z-10 bg-white shadow-md md:hidden">
+        <div className="flex items-center justify-between px-4 py-2">
+          <div className="text-[14px] text-lg tracking-[2px] text-black">
+            $ 59.000
+          </div>
+          <Button className="h-[45px] w-[200px] rounded-none bg-black text-[14px]">
+            ADICIONAR AO CARRINHO
+          </Button>
+        </div>
       </div>
     </div>
   );

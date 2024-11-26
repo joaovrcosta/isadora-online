@@ -75,7 +75,7 @@ const HeaderContent: React.FC<NavMenuProps> = ({
 
           {/*PERSON*/}
           <Link
-            href={'/'}
+            href={'/customer/account/login'}
             className="hidden h-7 w-7 delay-75 hover:opacity-70 md:block"
           >
             <svg
