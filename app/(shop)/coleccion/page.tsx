@@ -1,3 +1,4 @@
+import { mockProducts } from '@/app/_mocks/products';
 import { ProductItem } from '@/components/product-item';
 import {
   Select,
@@ -11,6 +12,7 @@ export default function CollectionPage() {
   return (
     <div>
       <div>
+        {/* Filtro de Ordenação */}
         <div className="mb-10 hidden w-full items-center justify-end gap-2 md:flex">
           <span className="text-xs tracking-[1px]">ORDENAR POR:</span>
           <Select>
@@ -21,22 +23,28 @@ export default function CollectionPage() {
               />
             </SelectTrigger>
             <SelectContent>
-              <SelectItem value="light">Light</SelectItem>
-              <SelectItem value="dark">Dark</SelectItem>
-              <SelectItem value="system">System</SelectItem>
+              <SelectItem value="relevance">Mais relevantes</SelectItem>
+              <SelectItem value="price_low_high">
+                Preço: menor para maior
+              </SelectItem>
+              <SelectItem value="price_high_low">
+                Preço: maior para menor
+              </SelectItem>
             </SelectContent>
           </Select>
         </div>
       </div>
+      {/* Listagem de Produtos */}
       <div className="mt-5 grid grid-cols-2 items-center justify-center gap-3 lg:grid-cols-4">
-        <ProductItem />
-        <ProductItem />
-        <ProductItem />
-        <ProductItem />
-        <ProductItem />
-        <ProductItem />
-        <ProductItem />
-        <ProductItem />
+        {mockProducts.map((product, index) => (
+          <ProductItem
+            key={index}
+            name={product.name}
+            price={product.price}
+            images={product.images}
+            colors={product.colors}
+          />
+        ))}
       </div>
     </div>
   );
