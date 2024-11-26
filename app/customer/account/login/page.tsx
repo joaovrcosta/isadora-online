@@ -49,7 +49,7 @@ export default function LoginPage() {
               </span>
               <span className="text-red-700">*</span>
             </Label>
-            <Input {...register('email')} />
+            <Input />
             {errors.email && (
               <p className="mt-1 text-xs text-red-500">
                 {errors.email.message}
@@ -63,7 +63,7 @@ export default function LoginPage() {
               </span>
               <span className="text-red-700">*</span>
             </Label>
-            <Input {...register('password')} type="password" />
+            <Input />
             {errors.email && (
               <p className="mt-1 text-xs text-red-500">
                 {errors.email.message}

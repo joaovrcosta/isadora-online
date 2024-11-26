@@ -62,7 +62,7 @@ export default function CreatePage() {
               <span className="text-sm font-semibold text-[#686868]">Nome</span>
               <span className="text-red-700">*</span>
             </Label>
-            <Input {...register('name')} />
+            <Input />
             {errors.email && (
               <p className="mt-1 text-xs text-red-500">
                 {errors.email.message}
@@ -76,7 +76,7 @@ export default function CreatePage() {
               </span>
               <span className="text-red-700">*</span>
             </Label>
-            <Input {...register('surname')} />
+            <Input />
             {errors.email && (
               <p className="mt-1 text-xs text-red-500">
                 {errors.email.message}
@@ -90,7 +90,7 @@ export default function CreatePage() {
               </span>
               <span className="text-red-700">*</span>
             </Label>
-            <Input {...register('document')} />
+            <Input />
             {errors.email && (
               <p className="mt-1 text-xs text-red-500">
                 {errors.email.message}
@@ -132,11 +132,7 @@ export default function CreatePage() {
 
         <div className="mb-6 space-y-4">
           <div className="flex items-start gap-2">
-            <input
-              type="checkbox"
-              {...register('acceptInfo')}
-              className="mt-1"
-            />
+            <input type="checkbox" className="mt-1" />
             <Label>
               Acepto recibir información por Email sobre novedades, ofertas,
               descuentos, promociones y eventos.
@@ -149,11 +145,7 @@ export default function CreatePage() {
           </div>
 
           <div className="flex items-start gap-2">
-            <input
-              type="checkbox"
-              {...register('acceptLoyalty')}
-              className="mt-1"
-            />
+            <input type="checkbox" className="mt-1" />
             <Label>
               Acepto formar parte del Programa de Lealtad de Isadora, conocé los{' '}
               <span className="font-bold">Términos y Condiciones.</span>
@@ -166,11 +158,7 @@ export default function CreatePage() {
           </div>
 
           <div className="flex items-start gap-2">
-            <input
-              type="checkbox"
-              {...register('acceptTerms')}
-              className="mt-1"
-            />
+            <input type="checkbox" className="mt-1" />
             <Label>
               Acepto los{' '}
               <span className="font-bold">Términos y Condiciones</span> y las{' '}
