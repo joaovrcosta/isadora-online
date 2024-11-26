@@ -7,6 +7,7 @@ import cambiosImg from '@/public/icons/ic-cambios-devoluciones.webp';
 import logoTargeta from '@/public/icons/logo-tarjeta.webp';
 import { Heart, Share2 } from 'lucide-react';
 import ProductImages from '@/components/product/product-images';
+import { useState } from 'react';
 
 const product = {
   sku: '48611201',
@@ -14,6 +15,8 @@ const product = {
   price: 59000,
   description:
     'Clutch con cierre a presión, con correa larga de cadena. Forro interior.',
+  extraDescription:
+    'Este clutch es ideal para ocasiones especiales. Con su diseño elegante y sofisticado, puedes llevar tus esenciales con estilo. Está disponible en varios colores y es un accesorio perfecto para complementar tu look.',
   images: [
     '/products/product-image-1.webp',
     '/products/product-image-2.webp',
@@ -38,6 +41,12 @@ const product = {
 };
 
 export default function ProductPage() {
+  const [showMore, setShowMore] = useState(false);
+
+  const toggleShowMore = () => {
+    setShowMore((prev) => !prev);
+  };
+
   return (
     <div className="mt-[76px] flex flex-col items-center justify-center md:mt-24 lg:mt-12 lg:flex-row">
       <div className="flex flex-col md:flex-row lg:flex-row">
@@ -78,12 +87,23 @@ export default function ProductPage() {
           </div>
 
           <div className="mb-6 space-y-2">
-            <div className="mb-6 space-y-1">
-              <h4 className="text-xs font-bold text-gray-800">DESCRIPCIÓN</h4>
+            <div className="mb-6 space-y-3">
+              <h4 className="text-xs font-bold text-gray-800">DESCRIÇÃO</h4>
+
               <p className="text-xs text-gray-700">{product.description}</p>
+              {showMore && (
+                <p className="text-xs text-gray-700">
+                  {product.extraDescription}
+                </p>
+              )}
             </div>
-            <button className="mt-6 text-xs">
-              <span className="tracking-[2px] underline">Ver mais</span>
+            <button
+              onClick={toggleShowMore}
+              className="mt-6 text-xs text-lightPink"
+            >
+              <span className="tracking-[2px] underline">
+                {showMore ? 'Ver menos' : 'Ver mais'}
+              </span>
             </button>
           </div>
 

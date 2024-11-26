@@ -100,12 +100,11 @@ const ProductImages = ({
       </div>
       <section className="flex hidden items-center justify-center md:block lg:block">
         <div className="relative h-auto max-w-[616px]">
-          {/* Wrapper com tamanho fixo */}
           <Carousel>
             <CarouselContent
               className="flex"
               style={{
-                transform: `translateX(-${currentSlide * 100}%)`, // Aplica o slide baseado no estado currentSlide
+                transform: `translateX(-${currentSlide * 100}%)`,
               }}
             >
               {images.map((image, index) => (
@@ -116,7 +115,7 @@ const ProductImages = ({
                     width={616}
                     height={788}
                     alt={`Imagem do produto ${index + 1}`}
-                    className="h-full w-full max-w-full object-cover" // Garantindo que a imagem se ajuste à largura do contêiner
+                    className="h-full w-full max-w-full object-cover"
                   />
                 </CarouselItem>
               ))}
