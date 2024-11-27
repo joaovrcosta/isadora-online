@@ -1,67 +1,129 @@
 import { Button } from '@/components/shadcn/ui/button';
 import Image from 'next/image';
 import isaClubLogo from '@/public/icons/ISACLUB-logo-100.webp';
+import { SidebarAccount } from '@/components/account/sidebar';
+import { Gem, Gift, MapPin, Pencil, UserRound } from 'lucide-react';
+import { Label } from '@/components/shadcn/ui/label';
+import { Input } from '@/components/shadcn/ui/input';
 
 export default function AccountPage() {
   return (
-    <div className="mt-32 flex">
-      <aside className="w-[22.3%] max-w-[454px] px-16">
-        <div className="py-16">
-          <div className="mb-5">
-            <h3 className="font-bold">Olá,</h3>
-            <p className="text-sm">customer@store.com</p>
+    <div className="mt-24 flex flex-col space-x-0 lg:flex-row xl:flex-row">
+      <SidebarAccount />
+      <main className="h-full w-full bg-[#eee] px-4 py-12 lg:px-12 xl:px-24">
+        <div className="flex flex-col space-x-0 lg:flex-row lg:space-x-6 xl:flex-row xl:space-x-6">
+          <div className="space-y-6">
+            <section className="h-[164px] w-full flex-col items-center justify-center rounded-3xl bg-white px-9 pb-8 pt-5 lg:max-w-[390px] xl:max-w-[390px]">
+              <div></div>
+              <div></div>
+              <div></div>
+              <div></div>
+            </section>
+            <section className="h-[266px] w-full flex-col items-center justify-center rounded-3xl bg-white px-9 pb-8 pt-8 lg:max-w-[390px] xl:max-w-[390px]">
+              <div className="mb-5 flex items-center gap-3">
+                <div className="flex h-[43px] w-[43px] items-center justify-center rounded-full bg-[#f8e6e3]">
+                  <Gem size={24} />
+                </div>
+                <Image
+                  src={isaClubLogo}
+                  alt="Isa Club Logo"
+                  height={21}
+                  width={100}
+                />
+              </div>
+              <div className="flex flex-col items-center justify-center">
+                <p className="text-xs leading-6">
+                  Ya formás parte del Programa de lealtad de Isadora. Podrás
+                  acceder a descuentos, colecciones y beneficios exclusivos.
+                </p>
+                <div className="mt-7">
+                  <Button className="h-[40px] w-[200px] rounded-none bg-[#d32951] text-xs font-bold hover:bg-[#d32951]/80">
+                    VER BENEFICIOS
+                  </Button>
+                </div>
+              </div>
+            </section>
+            <section className="h-[266px] w-full flex-col items-center justify-center rounded-3xl bg-white px-9 pb-8 pt-5 lg:max-w-[390px] lg:px-9 xl:max-w-[390px]">
+              <div className="mb-6 flex items-center gap-3">
+                <div className="flex h-[43px] w-[43px] items-center justify-center rounded-full bg-[#f8e6e3]">
+                  <Gift size={24} />
+                </div>
+                <h4 className="text-sm font-bold">Giftcard</h4>
+              </div>
+              <Label className="text-xs">Código</Label>
+              <Input placeholder="Digite o código" />
+              <div className="mt-7 flex items-center justify-center">
+                <Button
+                  className="h-[40px] w-[200px] rounded-none bg-black text-xs font-bold"
+                  disabled
+                >
+                  CHECAR CÓDIGO
+                </Button>
+              </div>
+            </section>
           </div>
-
-          <ul className="space-y-5 text-[13px]">
-            <li>Minha conta</li>
-            <li>Meus dados</li>
-            <li>Meus pedidos</li>
-            <li>Meus endereços</li>
-            <li>Meus favoritos</li>
-            <li>Giftcard</li>
-            <li>Newsletter</li>
-          </ul>
-
-          <button>Sair da conta</button>
-        </div>
-      </aside>
-      <main className="w-full bg-[#eee] px-24 py-12">
-        <div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
-        <div className="h-[266px] w-[390px] flex-col items-center justify-center rounded-3xl bg-white px-9 pb-8 pt-5">
-          <div className="mb-5 flex items-center gap-3">
-            <div className="h-[43px] w-[43px] rounded-full bg-[#f8e6e3]"></div>
-            <Image
-              src={isaClubLogo}
-              alt="Isa Club Logo"
-              height={21}
-              width={100}
-            />
+          <div className="mt-6 space-y-6 lg:mt-0 xl:mt-0">
+            <section className="xl:max-w-[390px]flex-col h-[266px] w-full items-center justify-center rounded-3xl bg-white px-9 pb-8 pt-5 lg:max-w-[390px]">
+              <div className="mb-6 flex items-center gap-3">
+                <div className="flex h-[43px] w-[43px] items-center justify-center rounded-full bg-[#f8e6e3]">
+                  <MapPin size={24} />
+                </div>
+                <h4 className="text-sm font-bold">Meu endereços</h4>
+              </div>
+              <div className="flex space-x-3">
+                <div className="space-y-3">
+                  <h4 className="text-sm font-bold">
+                    Dirección de Facturación
+                  </h4>
+                  <p className="text-xs leading-6">
+                    Aún no guardaste una dirección de facturación.
+                  </p>
+                </div>
+                <div className="space-y-3">
+                  <h4 className="text-sm font-bold">Dirección de Envío</h4>
+                  <p className="text-xs leading-6">
+                    Aún no guardaste una dirección de envío.
+                  </p>
+                </div>
+              </div>
+              <div className="flex space-x-6">
+                <button className="flex flex-1 gap-2 text-[10px]">
+                  <Pencil size={12} />
+                  Editar
+                </button>
+                <button className="flex flex-1 gap-2 text-[10px]">
+                  <Pencil size={12} />
+                  Editar
+                </button>
+              </div>
+            </section>
+            <section className="h-[450px] w-full flex-col items-center justify-center rounded-3xl bg-white px-9 pb-8 pt-5 lg:max-w-[390px] xl:max-w-[390px]">
+              <div className="mb-6 flex items-center gap-3">
+                <div className="flex h-[43px] w-[43px] items-center justify-center rounded-full bg-[#f8e6e3]">
+                  <UserRound size={24} />
+                </div>
+                <h4 className="text-sm font-bold">Info. de contato</h4>
+              </div>
+              <div className="mb-3">
+                <h4 className="text-[13px] font-bold">Nome & Apelido</h4>
+                <p className="text-xs leading-6">John Doe</p>
+              </div>
+              <div className="">
+                <h4 className="text-[13px] font-bold">E-mail</h4>
+                <p className="text-xs leading-6">customer@store.com</p>
+              </div>
+              <div className="mt-6 flex space-x-6">
+                <button className="flex flex-1 gap-2 text-[10px]">
+                  <Pencil size={12} />
+                  Editar
+                </button>
+                <button className="flex flex-1 gap-2 text-[10px]">
+                  <Pencil size={12} />
+                  Editar senha
+                </button>
+              </div>
+            </section>
           </div>
-          <div className="flex flex-col items-center justify-center">
-            <p>
-              Ya formás parte del Programa de lealtad de Isadora. Podrás acceder
-              a descuentos, colecciones y beneficios exclusivos.
-            </p>
-            <div className="mt-7">
-              <Button className="rounded-none">VER BENEFICIOS</Button>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div className="flex items-center gap-3">
-            <div className="h-[43px] w-[43px] rounded-full bg-[#f8e6e3]"></div>
-            <h4 className="text-sm">Giftcard</h4>
-          </div>
-          <p>
-            Ya formás parte del Programa de lealtad de Isadora. Podrás acceder a
-            descuentos, colecciones y beneficios exclusivos.
-          </p>
-          <Button>VER BENEFICIOS</Button>
         </div>
       </main>
     </div>
