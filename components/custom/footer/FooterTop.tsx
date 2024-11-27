@@ -7,7 +7,7 @@ const FooterTop: React.FC = () => {
   return (
     <div className="">
       <Link href="/locales">
-        <div className="relative flex h-[90px] min-h-16 w-full items-center justify-center space-x-3 bg-black text-center text-white transition-opacity duration-300 hover:opacity-75">
+        <div className="relative flex h-[90px] min-h-16 w-full items-center justify-center space-x-3 bg-black px-3 text-center text-white transition-opacity duration-300 hover:opacity-75">
           <MapPin size={20} />
           <h2 className="text-xl">Encontra tu tienda más cercana</h2>
         </div>

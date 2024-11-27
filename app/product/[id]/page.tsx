@@ -62,15 +62,21 @@ export default function ProductPage() {
                 {product.sku}
               </span>
             </div>
-            <div className="flex items-center justify-center space-x-3">
+            <div className="mb-4 flex items-center justify-center space-x-3 md:mb-0 lg:mb-0">
               <div className="flex flex-col items-center justify-center">
                 <button className="hover:text-lightPink">
-                  <Heart size={32} />
+                  <Heart
+                    size={32}
+                    className="h-[24px] w-[24px] lg:h-[32px] lg:w-[32px]"
+                  />
                 </button>
               </div>
               <div className="flex flex-col items-center justify-center">
                 <button className="duration-75 hover:text-lightPink">
-                  <Share2 size={32} />
+                  <Share2
+                    size={32}
+                    className="h-[24px] w-[24px] lg:h-[32px] lg:w-[32px]"
+                  />
                 </button>
               </div>
             </div>
@@ -80,7 +86,7 @@ export default function ProductPage() {
             {product.name}
           </h1>
 
-          <div className="mb-6 max-w-[456px] border-b border-gray-200 pl-2 text-lg text-gray-900 md:pb-10 lg:pb-10">
+          <div className="md:lg-0 mb-6 max-w-[456px] border-b border-gray-200 pl-2 text-lg text-gray-900 md:pb-10 lg:pb-10 lg:pl-0">
             <span className="hidden tracking-[2px] md:block lg:block">
               ${product.price}
             </span>

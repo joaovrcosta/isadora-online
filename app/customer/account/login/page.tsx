@@ -28,7 +28,7 @@ export default function LoginPage() {
     formState: { errors, isValid },
   } = useForm<LoginFormData>({
     resolver: zodResolver(loginSchema),
-    mode: 'onChange', // Atualiza a validação ao mudar os valores
+    mode: 'onChange',
   });
 
   const onSubmit = (data: LoginFormData) => {
@@ -37,7 +37,7 @@ export default function LoginPage() {
 
   return (
     <div className="mt-32 flex items-center justify-center">
-      <div className="mb-[40px] w-[360px] flex-col">
+      <div className="mb-[40px] w-[360px] flex-col px-3">
         <div className="mb-[40px] flex items-center justify-center">
           <LoginTab />
         </div>

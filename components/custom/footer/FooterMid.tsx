@@ -13,7 +13,7 @@ import TiendaOnline from './TiendaOnline';
 
 const FooterMid: React.FC = () => {
   return (
-    <div className="container mx-auto grid grid-cols-1 pt-20 md:grid-cols-3 md:gap-8 md:px-5 md:pb-5 lg:md:grid-cols-5">
+    <div className="container mx-auto grid grid-cols-1 px-6 pt-20 md:grid-cols-3 md:gap-8 md:px-5 md:pb-5 lg:md:grid-cols-5">
       {/** Atención al cliente */}
       <div className="column min-w-auto">
         <h3 className="mb-4 font-semibold">Atención al cliente</h3>
