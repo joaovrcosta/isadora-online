@@ -8,7 +8,7 @@ import {
   SelectValue,
 } from '@/components/shadcn/ui/select';
 
-export default function CollectionPage() {
+export default function ProductsPage() {
   return (
     <div>
       <div>
