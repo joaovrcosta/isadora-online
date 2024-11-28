@@ -9,7 +9,7 @@ import Card from '@/components/account/card';
 
 export default function AccountPage() {
   return (
-    <div className="mt-24 flex flex-col space-x-0 lg:flex-row xl:flex-row">
+    <div className="mt-20 flex flex-col space-x-0 bg-[#eee] md:mt-24 lg:mt-24 lg:flex-row xl:mt-24 xl:flex-row">
       <SidebarAccount />
       <main className="h-full w-full bg-[#eee] px-4 py-12 lg:px-12 xl:px-24">
         <div className="flex flex-col space-x-0 lg:flex-row lg:space-x-6 xl:flex-row xl:space-x-6">
@@ -44,7 +44,7 @@ export default function AccountPage() {
                 </div>
               </div>
             </section>
-            <Card icon={<Gift />} title="Giftcard" className="h-[267px]">
+            <Card icon={<Gift />} title="Giftcard" className="max-h-[267px]">
               <Label className="text-xs">Código</Label>
               <Input placeholder="Digite o código" />
               <div className="mt-7 flex items-center justify-center">
@@ -61,7 +61,7 @@ export default function AccountPage() {
             <Card
               icon={<MapPin />}
               title="Mis direcciones"
-              className="h-[282px]"
+              className="max-h-[282px]"
             >
               <div className="flex space-x-3">
                 <div className="space-y-3">
@@ -93,7 +93,7 @@ export default function AccountPage() {
             <Card
               icon={<UserRound size={24} />}
               title="Info. de contato"
-              className="h-[438px]"
+              className="max-h-[438px]"
             >
               <div className="mb-3">
                 <h4 className="text-[13px] font-bold">Nome & Apelido</h4>

@@ -5,7 +5,7 @@ import { Heart, ShoppingBasket } from 'lucide-react';
 
 export default function WishlistPage() {
   return (
-    <div className="mt-24 flex h-full flex-col space-x-0 lg:flex-row xl:flex-row">
+    <div className="mt-20 flex h-full flex-col space-x-0 bg-[#eee] md:mt-24 lg:mt-24 lg:flex-row xl:mt-24 xl:flex-row">
       <SidebarAccount />
 
       <main className="h-auto w-full bg-[#eee] px-4 py-12 lg:px-12 xl:px-24">

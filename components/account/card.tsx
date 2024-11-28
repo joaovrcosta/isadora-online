@@ -15,7 +15,7 @@ export default function Card({
 }: CardProps) {
   return (
     <section
-      className={`h-full w-full flex-col items-center justify-center rounded-3xl bg-white px-9 pb-8 pt-5 ${
+      className={`h-full w-full flex-col items-center justify-center rounded-3xl bg-white px-9 pb-8 pt-8 ${
         className || ''
       }`}
     >
