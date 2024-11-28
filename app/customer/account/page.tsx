@@ -5,6 +5,7 @@ import { SidebarAccount } from '@/components/account/sidebar';
 import { Gem, Gift, MapPin, Pencil, UserRound } from 'lucide-react';
 import { Label } from '@/components/shadcn/ui/label';
 import { Input } from '@/components/shadcn/ui/input';
+import Card from '@/components/account/card';
 
 export default function AccountPage() {
   return (
@@ -43,13 +44,7 @@ export default function AccountPage() {
                 </div>
               </div>
             </section>
-            <section className="h-[266px] w-full flex-col items-center justify-center rounded-3xl bg-white px-9 pb-8 pt-5 lg:max-w-[390px] lg:px-9 xl:max-w-[390px]">
-              <div className="mb-6 flex items-center gap-3">
-                <div className="flex h-[43px] w-[43px] items-center justify-center rounded-full bg-[#f8e6e3]">
-                  <Gift size={24} />
-                </div>
-                <h4 className="text-sm font-bold">Giftcard</h4>
-              </div>
+            <Card icon={<Gift />} title="Giftcard" className="h-[267px]">
               <Label className="text-xs">Código</Label>
               <Input placeholder="Digite o código" />
               <div className="mt-7 flex items-center justify-center">
@@ -60,16 +55,14 @@ export default function AccountPage() {
                   CHECAR CÓDIGO
                 </Button>
               </div>
-            </section>
+            </Card>
           </div>
           <div className="mt-6 space-y-6 lg:mt-0 xl:mt-0">
-            <section className="xl:max-w-[390px]flex-col h-[266px] w-full items-center justify-center rounded-3xl bg-white px-9 pb-8 pt-5 lg:max-w-[390px]">
-              <div className="mb-6 flex items-center gap-3">
-                <div className="flex h-[43px] w-[43px] items-center justify-center rounded-full bg-[#f8e6e3]">
-                  <MapPin size={24} />
-                </div>
-                <h4 className="text-sm font-bold">Meu endereços</h4>
-              </div>
+            <Card
+              icon={<MapPin />}
+              title="Mis direcciones"
+              className="h-[282px]"
+            >
               <div className="flex space-x-3">
                 <div className="space-y-3">
                   <h4 className="text-sm font-bold">
@@ -96,14 +89,12 @@ export default function AccountPage() {
                   Editar
                 </button>
               </div>
-            </section>
-            <section className="h-[450px] w-full flex-col items-center justify-center rounded-3xl bg-white px-9 pb-8 pt-5 lg:max-w-[390px] xl:max-w-[390px]">
-              <div className="mb-6 flex items-center gap-3">
-                <div className="flex h-[43px] w-[43px] items-center justify-center rounded-full bg-[#f8e6e3]">
-                  <UserRound size={24} />
-                </div>
-                <h4 className="text-sm font-bold">Info. de contato</h4>
-              </div>
+            </Card>
+            <Card
+              icon={<UserRound size={24} />}
+              title="Info. de contato"
+              className="h-[438px]"
+            >
               <div className="mb-3">
                 <h4 className="text-[13px] font-bold">Nome & Apelido</h4>
                 <p className="text-xs leading-6">John Doe</p>
@@ -122,7 +113,7 @@ export default function AccountPage() {
                   Editar senha
                 </button>
               </div>
-            </section>
+            </Card>
           </div>
         </div>
       </main>

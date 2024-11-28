@@ -11,9 +11,9 @@ export function SidebarAccount() {
     { label: 'Meus dados', path: '/customer/account/edit' },
     { label: 'Meus pedidos', path: '/customer/account/history' },
     { label: 'Meus endereços', path: '/meus-enderecos' },
-    { label: 'Meus favoritos', path: '/meus-favoritos' },
-    { label: 'Giftcard', path: '/giftcard' },
-    { label: 'Newsletter', path: '/newsletter' },
+    { label: 'Meus favoritos', path: '/customer/wishlist' },
+    { label: 'Giftcard', path: '/customer/giftcard' },
+    { label: 'Newsletter', path: '/customer/newsletter' },
   ];
 
   return (
