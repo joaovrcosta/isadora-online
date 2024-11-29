@@ -27,10 +27,23 @@ const predefinedColorOptions = {
 };
 
 const predefinedTalleOptions = {
-  CHICA: 'chica',
-  S: 'small',
-  M: 'meddium',
-  L: 'large',
+  CHICA: 'Chica',
+  36: '36',
+  37: '37',
+  38: '38',
+  39: '39',
+  40: '40',
+  S: 'S',
+  M: 'M',
+  L: 'L',
+};
+
+const predefinedCategories = {
+  Carteras: 'Cateiras',
+  Bijou: 'Bijou',
+  Textil: 'Textil',
+  Pelo: 'Pelo',
+  Complementos: 'Complementos',
 };
 
 interface ColorOption {
@@ -59,6 +72,7 @@ interface FilterState {
     MENOR_PRECIO: string;
     MAYOR_PRECIO: string;
   };
+  categoriesOptions: { [key: string]: string };
   colorOptions: { [key: string]: ColorOption };
   setColorOptions: (colors: { [key: string]: ColorOption }) => void;
   allColorOptions: string[]; // Todas as cores disponíveis para os produtos
@@ -105,6 +119,19 @@ function generateTalleOptions(products: Product[]): {
   return talleOptions;
 }
 
+function generateCategoriesOptions(products: Product[]): {
+  [key: string]: string;
+} {
+  const categoriesSet = new Set(products.map((product) => product.categories));
+
+  const categoriesOptions: { [key: string]: string } = {};
+  categoriesSet.forEach((categoryKey) => {
+    categoriesOptions[categoryKey] = categoryKey;
+  });
+
+  return categoriesOptions;
+}
+
 const useFilterStore = create<FilterState>((set, get) => ({
   filters: {
     minPrice: 8297,
@@ -126,10 +153,13 @@ const useFilterStore = create<FilterState>((set, get) => ({
 
       const newTalleOptions = generateTalleOptions(updatedProducts);
 
+      const newCategoriesOptions = generateCategoriesOptions(updatedProducts);
+
       return {
         filteredProducts: updatedProducts,
         colorOptions: newColorOptions,
         talleOptions: newTalleOptions,
+        categoriesOptions: newCategoriesOptions,
       };
     }),
   sortOrder: 'mas relevantes',
@@ -140,6 +170,7 @@ const useFilterStore = create<FilterState>((set, get) => ({
     MENOR_PRECIO: 'menor precio',
     MAYOR_PRECIO: 'mayor precio',
   },
+  categoriesOptions: predefinedCategories,
   colorOptions: predefinedColorOptions,
   setColorOptions: (colors) => set({ colorOptions: colors }),
   allColorOptions: [], // Inicialmente sem cores disponíveis
@@ -147,6 +178,8 @@ const useFilterStore = create<FilterState>((set, get) => ({
   setAllColorOptions: (colors) => set(() => ({ allColorOptions: colors })),
   talleOptions: predefinedTalleOptions, // Inicialmente sem talles disponíveis
   setTalleOptions: (talles) => set(() => ({ talleOptions: talles })),
+  setCategoriasOptions: (categories: any) =>
+    set(() => ({ categoriesOptions: categories })),
   toggleSortOrder: () =>
     set((state) => {
       const { sortOrder, sortOrderOptions } = state;

@@ -12,6 +12,7 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   const pathName = usePathname();
+
   return (
     <>
       {pathName === '/new-in' ? (
@@ -60,7 +61,7 @@ export default function DashboardLayout({
                     {pathName.split('/').filter(Boolean).slice(-1)[0]}
                   </h1>
                 </div>
-                <AsideDesk className="sticky top-40 mb-8" />
+                <AsideDesk className="sticky top-40 mb-8 max-w-[294px]" />
               </div>
               <Aside className="sticky top-20 z-50 order-first min-h-10 w-full flex-grow basis-full pr-[2%] md:top-44 md:mt-20 md:h-fit md:w-1/5 md:basis-[20%] lg:hidden" />
             </div>

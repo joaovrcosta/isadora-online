@@ -1,7 +1,7 @@
 export const mockProducts = [
   {
     name: 'Mochila con cierre',
-    price: '$ 50,000',
+    price: 50000,
     images: {
       default: '/products/special-price/48680802_0_1_20240711150915.webp',
       hover: '/products/special-price/48680802_1_1_20240711150915.webp',
@@ -13,7 +13,7 @@ export const mockProducts = [
   },
   {
     name: 'Bolsa de Couro',
-    price: '$ 75,000',
+    price: 75000,
     images: {
       default: '/products/special-price/48576101_1_1_20240308211012.webp',
       hover: '/products/special-price/48576101_0_1_20240308211012.webp',
@@ -25,7 +25,7 @@ export const mockProducts = [
   },
   {
     name: 'Bolsa Elegante',
-    price: '$ 60,000',
+    price: 60000,
     images: {
       default: '/products/special-price/48483903_0_1_20240918121954.webp',
       hover: '/products/special-price/48483903_1_1_20240918121954.webp',
@@ -37,7 +37,7 @@ export const mockProducts = [
   },
   {
     name: 'Bolsa Compacta',
-    price: '$ 40,000',
+    price: 40000,
     images: {
       default: '/products/special-price/48589701_1_1_20240429151143.webp',
       hover: '/products/special-price/48589701_0_1_20240429151143.webp',
@@ -49,10 +49,10 @@ export const mockProducts = [
   },
   {
     name: 'Mochila con cierre',
-    price: '$ 50,000',
+    price: 58483,
     images: {
-      default: '/products/special-price/48680802_0_1_20240711150915.webp',
-      hover: '/products/special-price/48680802_1_1_20240711150915.webp',
+      default: '/products/collecion/48494201_0_1_20240118150906.webp',
+      hover: '/products/collecion/48494201_1_1_20240118150906.webp',
     },
     colors: [
       { value: 'red', label: 'Red', colorCode: 'black' },
@@ -61,10 +61,10 @@ export const mockProducts = [
   },
   {
     name: 'Bolsa de Couro',
-    price: '$ 75,000',
+    price: 85834,
     images: {
-      default: '/products/special-price/48576101_1_1_20240308211012.webp',
-      hover: '/products/special-price/48576101_0_1_20240308211012.webp',
+      default: '/products/collecion/48323001_0_1_20231220180432.webp',
+      hover: '/products/collecion/48323001_1_1_20231220180432.webp',
     },
     colors: [
       { value: 'green', label: 'Green', colorCode: '#88cc88' },
@@ -73,7 +73,7 @@ export const mockProducts = [
   },
   {
     name: 'Bolsa Elegante',
-    price: '$ 60,000',
+    price: 58584,
     images: {
       default: '/products/special-price/48483903_0_1_20240918121954.webp',
       hover: '/products/special-price/48483903_1_1_20240918121954.webp',
@@ -85,7 +85,7 @@ export const mockProducts = [
   },
   {
     name: 'Bolsa Compacta',
-    price: '$ 40,000',
+    price: 78383,
     images: {
       default: '/products/special-price/48589701_1_1_20240429151143.webp',
       hover: '/products/special-price/48589701_0_1_20240429151143.webp',
@@ -97,7 +97,7 @@ export const mockProducts = [
   },
   {
     name: 'Mochila con cierre',
-    price: '$ 50,000',
+    price: 50000,
     images: {
       default: '/products/special-price/48680802_0_1_20240711150915.webp',
       hover: '/products/special-price/48680802_1_1_20240711150915.webp',
@@ -109,7 +109,7 @@ export const mockProducts = [
   },
   {
     name: 'Bolsa de Couro',
-    price: '$ 75,000',
+    price: 74633,
     images: {
       default: '/products/special-price/48576101_1_1_20240308211012.webp',
       hover: '/products/special-price/48576101_0_1_20240308211012.webp',
@@ -121,7 +121,7 @@ export const mockProducts = [
   },
   {
     name: 'Bolsa Elegante',
-    price: '$ 60,000',
+    price: 60000,
     images: {
       default: '/products/special-price/48483903_0_1_20240918121954.webp',
       hover: '/products/special-price/48483903_1_1_20240918121954.webp',
@@ -133,7 +133,7 @@ export const mockProducts = [
   },
   {
     name: 'Bolsa Compacta',
-    price: '$ 40,000',
+    price: 70000,
     images: {
       default: '/products/special-price/48589701_1_1_20240429151143.webp',
       hover: '/products/special-price/48589701_0_1_20240429151143.webp',

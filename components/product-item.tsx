@@ -1,19 +1,35 @@
 'use client';
 
 import Image from 'next/image';
+import Link from 'next/link';
 import { Heart } from 'lucide-react';
 import { useState } from 'react';
+import { usePathname } from 'next/navigation';
 
 interface ProductItemProps {
   name: string;
-  price: string;
+  price: number;
   images: { default: string; hover: string };
   colors: { value: string; label: string; colorCode: string }[];
+}
+
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/\s+/g, '-')
+    .replace(/[^\w\-]+/g, '')
+    .replace(/\-\-+/g, '-')
+    .replace(/^-+/, '')
+    .replace(/-+$/, '');
 }
 
 export function ProductItem({ name, price, images, colors }: ProductItemProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [selectedColor, setSelectedColor] = useState(colors[0]?.value || '');
+
+  const slugifiedName = slugify(name);
+
+  const pathname = usePathname();
 
   return (
     <div className="group relative w-full max-w-[350px]">
@@ -28,7 +44,7 @@ export function ProductItem({ name, price, images, colors }: ProductItemProps) {
           height={450}
           width={350}
           sizes="(max-width: 768px) 100vw, 450px"
-          className="object-cover transition-all duration-300"
+          className="cursor-pointer object-cover transition-all duration-300"
         />
 
         <button
@@ -43,7 +59,11 @@ export function ProductItem({ name, price, images, colors }: ProductItemProps) {
       <div className="mt-4 flex h-[150px] flex-col pb-4 pl-5 pr-4 pt-2">
         <div className="flex justify-between">
           <div className="flex flex-col space-y-2">
-            <span className="text-xs font-bold tracking-[2px]">{name}</span>
+            <span className="text-xs font-bold tracking-[2px]">
+              <Link href={`/product/${slugifiedName}`} passHref>
+                {name}
+              </Link>
+            </span>
             <p className="text-[11px] font-medium tracking-[2px]">{price}</p>
           </div>
           <button className="rounded-md p-2">
