@@ -50,7 +50,7 @@ const NavMenu: React.FC<NavMenuProps> = ({
       <NavigationMenuList className="gap-10">
         <div className={hoverBorderBottomStyle}>
           <Link
-            href="/"
+            href="/new-in"
             legacyBehavior
             passHref
             className="p-0 hover:!bg-transparent"
@@ -88,7 +88,7 @@ const NavMenu: React.FC<NavMenuProps> = ({
           </div>
 
           <NavMenuContent
-            defaultHref="/coleccion"
+            defaultHref="/isabeauty"
             menuItems={mockIsabeautyLinks}
           />
         </NavigationMenuItem>

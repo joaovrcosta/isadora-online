@@ -29,6 +29,15 @@ interface ICategory {
 const MenuHamburguer: React.FC = () => {
   // Estado para armazenar o valor do trigger
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const [isFirstSheetOpen, setIsFirstSheetOpen] = useState(false);
+  const [isSecondSheetOpen, setIsSecondSheetOpen] = useState(false);
+  const [isThirdSheetOpen, setIsThirdSheetOpen] = useState(false);
+
+  const closeAllSheets = () => {
+    setIsFirstSheetOpen(false);
+    setIsSecondSheetOpen(false);
+    setIsThirdSheetOpen(false);
+  };
 
   const activeOptions = {
     COLECCIÓN: 'COLECCIÓN',
@@ -44,7 +53,7 @@ const MenuHamburguer: React.FC = () => {
         : lifestyleLinks;
 
   return (
-    <Sheet>
+    <Sheet open={isFirstSheetOpen} onOpenChange={setIsFirstSheetOpen}>
       <SheetTrigger className="px-1 hover:opacity-70 md:hidden">
         <svg
           width="34"
@@ -89,7 +98,7 @@ const MenuHamburguer: React.FC = () => {
         </Link>
 
         <nav className="flex flex-col space-y-2 p-4 text-xs leading-10 tracking-widest">
-          <Sheet>
+          <Sheet open={isSecondSheetOpen} onOpenChange={setIsSecondSheetOpen}>
             <Link
               href="/new-in"
               className="flex w-full items-center justify-between border-b border-b-[#e7e7e7] font-semibold text-gray-800"
@@ -236,11 +245,12 @@ const MenuHamburguer: React.FC = () => {
                 </SheetClose>
               </div>
 
-              <Sheet>
+              <Sheet open={isThirdSheetOpen} onOpenChange={setIsThirdSheetOpen}>
                 <ul className="flex flex-col space-y-2 p-4 text-xs leading-10 tracking-widest">
                   <Link
                     href={'/coleccion'}
                     className="flex w-full items-center justify-between border-b border-b-[#e7e7e7] font-semibold text-gray-800"
+                    onClick={closeAllSheets}
                   >
                     VER TODO
                   </Link>
@@ -261,6 +271,7 @@ const MenuHamburguer: React.FC = () => {
                         <Link
                           href={item.href}
                           className="flex w-full items-center justify-between border-b border-b-[#e7e7e7] uppercase text-gray-800"
+                          onClick={closeAllSheets}
                         >
                           {item.title}
                         </Link>
@@ -298,6 +309,7 @@ const MenuHamburguer: React.FC = () => {
                                 <Link
                                   href={subItem.href}
                                   className="flex w-full items-center justify-between border-b border-b-[#e7e7e7] px-[15px] py-[10px] uppercase leading-4 text-gray-800 hover:text-[#666]"
+                                  onClick={closeAllSheets}
                                 >
                                   {subItem.title}
                                 </Link>
@@ -306,6 +318,7 @@ const MenuHamburguer: React.FC = () => {
                             <Link
                               href={item.href}
                               className="flex w-full items-center justify-between border-b border-b-[#e7e7e7] px-[15px] py-[10px] font-semibold uppercase leading-4 text-gray-800"
+                              onClick={closeAllSheets}
                             >
                               VER TODO
                             </Link>
