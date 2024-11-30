@@ -38,14 +38,16 @@ export function ProductItem({ name, price, images, colors }: ProductItemProps) {
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
-        <Image
-          src={isHovered ? images.hover : images.default}
-          alt={name}
-          height={450}
-          width={350}
-          sizes="(max-width: 768px) 100vw, 450px"
-          className="cursor-pointer object-cover transition-all duration-300"
-        />
+        <Link href={`/product/${slugifiedName}`} passHref>
+          <Image
+            src={isHovered ? images.hover : images.default}
+            alt={name}
+            height={450}
+            width={350}
+            sizes="(max-width: 768px) 100vw, 450px"
+            className="cursor-pointer object-cover transition-all duration-300"
+          />
+        </Link>
 
         <button
           className={`absolute bottom-0 left-0 hidden w-full rounded-sm bg-[rgb(255,184,184)] py-3 text-sm font-medium text-black transition-opacity duration-300 lg:block ${
