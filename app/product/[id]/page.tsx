@@ -8,11 +8,15 @@ import logoTargeta from '@/public/icons/logo-tarjeta.webp';
 import { Heart, Share2 } from 'lucide-react';
 import ProductImages from '@/components/product/product-images';
 import { useState } from 'react';
+import { formatCurrencyARS } from '@/lib/utils';
+import isaClubLogo from '@/public/icons/ISACLUB-logo-100.webp'
 
 const product = {
   sku: '48611201',
   name: 'Clutch con correa de cadena',
   price: 59000,
+  discount: 15,
+  discountPrice: 46000,
   description:
     'Clutch con cierre a presión, con correa larga de cadena. Forro interior.',
   extraDescription:
@@ -85,12 +89,38 @@ export default function ProductPage() {
           <h1 className="mb-4 text-[14px] font-normal tracking-[2px] text-gray-900 md:text-[22px] md:font-bold lg:text-[22px] lg:font-bold">
             {product.name}
           </h1>
+          <div className="md:max-w-[456px] mb-6 max-w-full border-b border-gray-200 pl-2 text-lg text-gray-900 md:pb-10 lg:pb-10 lg:pl-0">
+  <div className="flex items-center space-x-4">
+    {/* Exibe preço original com o risco (strikethrough) */}
+    {product.discount ? (
+      <>
+        <span className="line-through text-gray-500">${formatCurrencyARS(product.price)}</span>
+        <span className="text-black font-semibold">{formatCurrencyARS(product.discountPrice)}</span>
+      </>
+    ) : (
+      <span>${product.price}</span>
+    )}
+    
+    {/* Exibe a porcentagem de desconto se houver */}
+    {product.discount && (
+     <div className='bg-lightPink/30 px-3 py-1'>
+       <span className="text-black text-sm font-bold">
+        {product.discount}% OFF
+      </span>
+     </div>
+    )}
+  </div>
 
-          <div className="md:lg-0 mb-6 max-w-[456px] border-b border-gray-200 pl-2 text-lg text-gray-900 md:pb-10 lg:pb-10 lg:pl-0">
-            <span className="hidden tracking-[2px] md:block lg:block">
-              ${product.price}
-            </span>
-          </div>
+  <div className='bg-[#eeeeee]  mt-5 px-3 py-1 rounded flex items-center justify-start  w-[280px] gap-3'>
+  <Image src={isaClubLogo} alt="" height={13} width={63} className='h-[12px]' />
+  <span className='text-[14px] text-red-600'>Registrate y sumá puntos!</span>
+</div>
+
+</div>
+
+
+      
+
 
           <div className="mb-6 space-y-2">
             <div className="mb-6 space-y-3">
@@ -103,19 +133,30 @@ export default function ProductPage() {
                 </p>
               )}
             </div>
+            
             <button
               onClick={toggleShowMore}
-              className="mt-6 text-xs text-lightPink"
+              className="mt-6 text-xs text-black"
             >
               <span className="tracking-[2px] underline">
-                {showMore ? 'Ver menos' : 'Ver mais'}
+                {showMore ? 'Ver menos' : 'Ver más'}
               </span>
             </button>
           </div>
 
-          <Button className="mb-16 mt-4 hidden h-[50px] w-[250px] rounded-none text-[16px] md:block lg:block">
+          
+
+          <Button className="mb-10 mt-4 hidden h-[50px] w-[250px] rounded-none text-[16px] md:block lg:block">
             ADICIONAR AO CARRINHO
           </Button>
+
+          <div className='mb-10'>
+            <span className='text-xs font-bold'>MÁS OPCIONES DISPONIBLES</span>
+            <div className='flex space-x-2 mt-2'>
+            <div className='h-[24px] w-[24px] bg-amber-200 rounded-full cursor-pointer'></div>
+            <div className='h-[24px] w-[24px] bg-black rounded-full cursor-pointer'></div>
+            </div>
+          </div>
 
           <div className="space-y-6">
             {product.shippingInfo && (

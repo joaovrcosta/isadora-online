@@ -80,19 +80,19 @@ export default function CartPage() {
               </div>
             </section>
 
-            <table className="mb-5 hidden w-full border-collapse lg:block xl:block">
-              <thead>
-                <tr className="border-b">
-                  <th className="py-6 pl-0 text-left text-xs tracking-[2px]">
-                    Produto
+            <table className="mb-5 hidden w-full border-collapse lg:block xl:block ">
+              <thead className='w-full'>
+                <tr className="border-b w-full">
+                  <th className="py-6 pl-0 text-left text-xs tracking-[2px] w-full">
+                  Producto
                   </th>
-                  <th className="py-6 text-center text-xs tracking-[2px]">
-                    Preço
+                  <th className="py-6 text-center text-xs tracking-[2px] w-full px-10">
+                    Precio
                   </th>
-                  <th className="py-6 text-center text-xs tracking-[2px]">
-                    Quantidade
+                  <th className="py-6 text-center text-xs tracking-[2px] w-full px-10">
+                  Cantidad
                   </th>
-                  <th className="py-6 text-center text-xs tracking-[2px]">
+                  <th className="py-6 text-center text-xs tracking-[2px] w-full px-10">
                     Subtotal
                   </th>
                   <th className="flex items-center justify-center p-2 py-6 text-center text-xs tracking-[2px]">
@@ -100,7 +100,7 @@ export default function CartPage() {
                   </th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody className='w-full'>
                 <tr className="border-b">
                   <td className="flex max-w-[268px] items-center space-y-0 p-2 py-4 lg:space-y-4 xl:space-x-4">
                     <Image
@@ -120,10 +120,12 @@ export default function CartPage() {
                     </div>
                   </td>
                   <td className="p-2 py-4 text-[11px] tracking-[2px]">
+                    <div className='flex items-center justify-center'>
                     $59.000
+                    </div>
                   </td>
                   <td className="p-2 py-4">
-                    <div className="flex items-center">
+                    <div className="flex items-center justify-center">
                       <button className="h-[40px] w-[37px] bg-[#f8e6e3] px-2 py-1">
                         -
                       </button>
@@ -136,11 +138,13 @@ export default function CartPage() {
                     </div>
                   </td>
                   <td className="p-2 py-4 text-[11px] tracking-[2px]">
+                  <div className='flex items-center justify-center'>
                     $59.000
+                  </div>
                   </td>
                   <td className="p-2 py-4">
                     <div className="flex items-center justify-center">
-                      <span className="text-sm font-bold text-[#b52036]">
+                      <span className="text-sm font-bold text-[#b52036] whitespace-nowrap">
                         59.000 pontos
                       </span>
                     </div>
