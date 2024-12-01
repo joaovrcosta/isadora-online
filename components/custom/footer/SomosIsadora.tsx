@@ -14,7 +14,7 @@ const SomosIsadoraLinks = () => (
       { href: '/locales', text: 'Localizador de tiendas' },
       { href: '/terms-and-conditions', text: 'Términos y Condiciones' },
       { href: '/', text: 'Bases y Condiciones ISACLUB' },
-      { href: '/', text: 'Preguntas Frecuentes ISACLUB' },
+      { href: '/faq', text: 'Preguntas Frecuentes ISACLUB' },
       { href: '/privacy-policy', text: 'Política de Privacidad' },
       { href: '/', text: 'Expansión' },
       { href: '/', text: 'Proveedores' },

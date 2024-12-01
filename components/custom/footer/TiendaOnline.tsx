@@ -11,9 +11,9 @@ const TiendaOnlineLinks = () => (
     {[
       { href: '/contact', text: 'Contactanos' },
       { href: '/', text: 'Preguntas frecuentes' },
-      { href: '/', text: 'Cambios y devoluciones' },
-      { href: '/', text: 'Medios de pago' },
-      { href: '/', text: 'Información de envíos' },
+      { href: '/faq', text: 'Cambios y devoluciones' },
+      { href: '/faq', text: 'Medios de pago' },
+      { href: '/faq', text: 'Información de envíos' },
       { href: '/regret-button', text: 'Botón de arrepentimiento' },
       { href: '/', text: 'Defensa del consumidor' },
       { href: '/', text: 'Defensa del consumidor (CABA)' },
