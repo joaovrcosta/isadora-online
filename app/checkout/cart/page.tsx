@@ -17,6 +17,7 @@ import {
 } from '@/components/shadcn/ui/accordion';
 import isaClubLogo from '@/public/icons/ISACLUB-logo-100.webp';
 import { Input } from '@/components/shadcn/ui/input';
+import { Button } from '@/components/shadcn/ui/button';
 
 export default function CartPage() {
   return (
@@ -24,27 +25,61 @@ export default function CartPage() {
       <div className="flex items-center justify-center">
         <div className="flex w-full max-w-[1279px] flex-col space-x-0 md:flex-row md:space-x-7 md:px-6 lg:flex-row lg:space-x-7 xl:flex-row xl:space-x-7">
           {/* Tabela de produtos */}
-          <div className="w-full sm:px-4 md:px-4">
+          <div className="w-full pl-4 pr-4 sm:px-4 md:px-4">
             <div>
               <h1 className="text-2xl font-bold tracking-[2px]">Mi carrito</h1>
             </div>
-            <div className="flex w-full items-center space-x-4 p-2 py-4 lg:hidden xl:hidden">
+            <main className="flex w-full items-center space-x-4 p-2 py-4 lg:hidden xl:hidden">
               <Image
                 src={productImage}
                 alt="Product 1"
-                width={100}
-                height={128}
+                width={80}
+                height={102}
               />
-              <div className="h-full max-w-[128px]">
-                <span className="mt-3 text-[11px] text-xs tracking-[0.5px]">
-                  Clutch con correa de cadena
-                </span>
-                <div className="mt-12 flex items-center space-x-2">
+              <div className="flex h-full w-full items-center justify-between">
+                <div>
+                  <div className="mb-5">
+                    <span className="mt-3 text-[11px] text-xs tracking-[0.5px]">
+                      Clutch con correa de cadena
+                    </span>
+                  </div>
+                  <span className="text-[11px] tracking-[2px]">$ 59.000</span>
+                  <div className="flex items-center">
+                    <button className="h-[40px] w-[37px] bg-[#f8e6e3] px-2 py-1">
+                      -
+                    </button>
+                    <div className="flex h-[40px] w-[37px] items-center justify-center bg-white px-2 py-1">
+                      <span>1</span>
+                    </div>
+                    <button className="h-[40px] w-[37px] bg-[#f8e6e3] px-2 py-1">
+                      +
+                    </button>
+                  </div>
+                </div>
+                <div className="ml-6 mt-0 flex flex-col items-center space-y-3 md:mt-12 md:flex-col lg:mt-12 lg:flex-row xl:mt-12 xl:flex-row">
                   <Trash2 size={20} />
                   <Heart size={20} />
+
+                  <span className="whitespace-nowrap text-[11px] tracking-[2px]">
+                    $ 59.000
+                  </span>
                 </div>
               </div>
-            </div>
+            </main>
+
+            <section className="mb-3 mt-3 block md:hidden lg:hidden xl:hidden">
+              <div className="flex items-center justify-between bg-[#eeeeee] p-2">
+                <div className="space-y-2">
+                  <Image src={isaClubLogo} alt="" height={13} width={63} />
+                </div>
+                <div>
+                  <span className="text-xs font-bold text-[#b52036]">
+                    59000 Puntos
+                  </span>
+                </div>
+              </div>
+            </section>
+
             <table className="mb-5 hidden w-full border-collapse lg:block xl:block">
               <thead>
                 <tr className="border-b">
@@ -113,7 +148,7 @@ export default function CartPage() {
                 </tr>
               </tbody>
             </table>
-            <div className="flex">
+            <div className="hidden md:flex lg:flex xl:flex">
               <div className="flex items-center justify-center gap-3">
                 <ArrowLeft size={20} />
                 <span className="cursor-pointer text-[11px] tracking-[2px]">
@@ -121,7 +156,7 @@ export default function CartPage() {
                 </span>
               </div>
             </div>
-            <div className="mt-5 bg-[#f5f5f5] p-5">
+            <div className="mt-5 hidden bg-[#f5f5f5] p-5 md:block lg:block xl:block">
               <div className="mb-3 flex items-center gap-3">
                 <Input type="checkbox" className="h-[22px] w-[22px]" />
                 <Gift size={20} />
@@ -139,7 +174,7 @@ export default function CartPage() {
           </div>
 
           {/* Resumo da compra */}
-          <section className="w-full xl:max-w-[383px]">
+          <section className="w-full px-4 md:px-0 lg:px-0 xl:max-w-[383px] xl:px-0">
             <div className="w-full bg-[#f8e6e3] px-6 pb-6 pt-5">
               <h2 className="mb-4 text-lg font-semibold tracking-[2px]">
                 Resumo de compra
@@ -156,7 +191,18 @@ export default function CartPage() {
                     </div>
                   </AccordionTrigger>
                   <AccordionContent>
-                    Yes. It adheres to the WAI-ARIA design pattern.
+                    <div className="flex">
+                      <Input
+                        className="border border-[#ef9a94] bg-white text-black"
+                        placeholder="Código"
+                      />
+                      <Button className="border border-[#ef9a94] bg-transparent px-2 text-[11px] text-black hover:bg-[#ef9a94]/80">
+                        APLICAR
+                      </Button>
+                      <Button className="border border-[#ef9a94] bg-transparent px-2 text-[11px] text-black hover:bg-[#ef9a94]/80">
+                        VER SALDO
+                      </Button>
+                    </div>
                   </AccordionContent>
                 </AccordionItem>
                 <AccordionItem value="item-2">
@@ -170,7 +216,15 @@ export default function CartPage() {
                     </div>
                   </AccordionTrigger>
                   <AccordionContent>
-                    Yes. It adheres to the WAI-ARIA design pattern.
+                    <div className="flex">
+                      <Input
+                        className="border border-[#ef9a94] bg-white text-black hover:bg-transparent"
+                        placeholder="Ex: VER2024"
+                      />
+                      <Button className="border border-[#ef9a94] bg-transparent px-2 text-[11px] text-black hover:bg-[#ef9a94]/80">
+                        APLICAR
+                      </Button>
+                    </div>
                   </AccordionContent>
                 </AccordionItem>
               </Accordion>
@@ -202,6 +256,22 @@ export default function CartPage() {
               </div>
             </section>
           </section>
+
+          <div className="ml-4 mt-5 block bg-[#f5f5f5] p-5 md:hidden lg:hidden xl:hidden">
+            <div className="mb-3 flex items-center gap-3">
+              <Input type="checkbox" className="h-[22px] w-[22px]" />
+              <Gift size={20} />
+              <p className="text-xs font-bold tracking-[2px]">
+                LO QUIERO PARA REGALO!
+              </p>
+            </div>
+            <div>
+              <p className="text-[11px] tracking-[2px]">
+                Sorprendé con un saludo especial, recibirás un mail para
+                grabarlo, llegará en un QR con tu regalo.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
