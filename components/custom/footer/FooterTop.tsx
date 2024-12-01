@@ -23,7 +23,7 @@ const FooterTop: React.FC = () => {
         </p>
         <p className="flex items-center justify-center">
           <Link
-            href="/descubre-isaclub"
+            href="/customer/account/create"
             className="border-solid bg-black px-8 py-4 font-medium text-white transition-opacity duration-300 hover:opacity-75"
           >
             SUSCRIBIRSE

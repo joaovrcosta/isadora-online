@@ -9,13 +9,13 @@ import {
 const SomosIsadoraLinks = () => (
   <ul className="text-xs">
     {[
-      { href: '/', text: 'Sobre Isadora' },
+      { href: '/about-us', text: 'Sobre Isadora' },
       { href: '/', text: 'Trabajá con nosotros' },
-      { href: '/', text: 'Localizador de tiendas' },
-      { href: '/', text: 'Términos y Condiciones' },
+      { href: '/locales', text: 'Localizador de tiendas' },
+      { href: '/terms-and-conditions', text: 'Términos y Condiciones' },
       { href: '/', text: 'Bases y Condiciones ISACLUB' },
       { href: '/', text: 'Preguntas Frecuentes ISACLUB' },
-      { href: '/', text: 'Política de Privacidad' },
+      { href: '/privacy-policy', text: 'Política de Privacidad' },
       { href: '/', text: 'Expansión' },
       { href: '/', text: 'Proveedores' },
     ].map((link, index) => (
