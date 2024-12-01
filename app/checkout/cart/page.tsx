@@ -1,6 +1,14 @@
 import Image from 'next/image';
 import productImage from '@/public/products/product-image-1.webp';
-import { ArrowLeft, Gift, Heart, Mails, Tickets, Trash2 } from 'lucide-react';
+import {
+  ArrowLeft,
+  CircleAlert,
+  Gift,
+  Heart,
+  Mails,
+  Tickets,
+  Trash2,
+} from 'lucide-react';
 import {
   Accordion,
   AccordionContent,
@@ -12,15 +20,32 @@ import { Input } from '@/components/shadcn/ui/input';
 
 export default function CartPage() {
   return (
-    <div className="mb-10 mt-40 w-full">
+    <div className="mb-10 mt-36 w-full">
       <div className="flex items-center justify-center">
-        <div className="flex w-full max-w-[1279px] space-x-7">
+        <div className="flex w-full max-w-[1279px] flex-col space-x-0 md:flex-row md:space-x-7 md:px-6 lg:flex-row lg:space-x-7 xl:flex-row xl:space-x-7">
           {/* Tabela de produtos */}
-          <div className="w-full">
+          <div className="w-full sm:px-4 md:px-4">
             <div>
               <h1 className="text-2xl font-bold tracking-[2px]">Mi carrito</h1>
             </div>
-            <table className="mb-5 w-full border-collapse">
+            <div className="flex w-full items-center space-x-4 p-2 py-4 lg:hidden xl:hidden">
+              <Image
+                src={productImage}
+                alt="Product 1"
+                width={100}
+                height={128}
+              />
+              <div className="h-full max-w-[128px]">
+                <span className="mt-3 text-[11px] text-xs tracking-[0.5px]">
+                  Clutch con correa de cadena
+                </span>
+                <div className="mt-12 flex items-center space-x-2">
+                  <Trash2 size={20} />
+                  <Heart size={20} />
+                </div>
+              </div>
+            </div>
+            <table className="mb-5 hidden w-full border-collapse lg:block xl:block">
               <thead>
                 <tr className="border-b">
                   <th className="py-6 pl-0 text-left text-xs tracking-[2px]">
@@ -42,7 +67,7 @@ export default function CartPage() {
               </thead>
               <tbody>
                 <tr className="border-b">
-                  <td className="flex max-w-[268px] items-center space-x-4 p-2 py-4">
+                  <td className="flex max-w-[268px] items-center space-y-0 p-2 py-4 lg:space-y-4 xl:space-x-4">
                     <Image
                       src={productImage}
                       alt="Product 1"
@@ -53,9 +78,9 @@ export default function CartPage() {
                       <span className="mt-3 text-[11px] text-xs tracking-[0.5px]">
                         Clutch con correa de cadena
                       </span>
-                      <div className="mt-12 flex items-center space-x-1">
-                        <Trash2 size={16} />
-                        <Heart size={16} />
+                      <div className="mt-12 flex items-center space-x-2">
+                        <Trash2 size={20} />
+                        <Heart size={20} />
                       </div>
                     </div>
                   </td>
@@ -114,8 +139,8 @@ export default function CartPage() {
           </div>
 
           {/* Resumo da compra */}
-          <div className="w-full xl:max-w-[383px]">
-            <section className="w-full bg-[#f8e6e3] px-6 pb-6 pt-5">
+          <section className="w-full xl:max-w-[383px]">
+            <div className="w-full bg-[#f8e6e3] px-6 pb-6 pt-5">
               <h2 className="mb-4 text-lg font-semibold tracking-[2px]">
                 Resumo de compra
               </h2>
@@ -127,6 +152,7 @@ export default function CartPage() {
                       <span className="text-[11px] font-light tracking-[2px]">
                         ¿Tenés una gift card?
                       </span>
+                      <CircleAlert size={20} className="text-[#ef9a94]" />
                     </div>
                   </AccordionTrigger>
                   <AccordionContent>
@@ -140,6 +166,7 @@ export default function CartPage() {
                       <span className="text-[11px] font-light tracking-[2px]">
                         ¿Tenés un cupón de descuento?
                       </span>
+                      <CircleAlert size={20} className="text-[#ef9a94]" />
                     </div>
                   </AccordionTrigger>
                   <AccordionContent>
@@ -152,7 +179,7 @@ export default function CartPage() {
                 <span>$59.000</span>
               </div>
               <div className="mb-4 flex justify-between pb-2 pt-4">
-                <span className="text-[18px]">Total</span>
+                <span className="text-[18px] font-semibold">Total</span>
                 <span className="text-[18px] font-semibold tracking-[2px]">
                   $59.000
                 </span>
@@ -160,7 +187,7 @@ export default function CartPage() {
               <button className="h-[48px] w-full bg-black py-2 text-xs font-bold text-white hover:bg-gray-800">
                 FINALIZAR COMPRA
               </button>
-            </section>
+            </div>
             <section>
               <div className="flex items-center justify-between bg-[#eeeeee] p-6">
                 <div className="space-y-2">
@@ -174,7 +201,7 @@ export default function CartPage() {
                 </div>
               </div>
             </section>
-          </div>
+          </section>
         </div>
       </div>
     </div>
