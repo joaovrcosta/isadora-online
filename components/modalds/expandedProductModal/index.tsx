@@ -11,6 +11,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from '@/components/shadcn/ui/carousel';
+import { Minus, Plus } from 'lucide-react';
 
 export function ExpandedProductModal({
   images,
@@ -18,7 +19,7 @@ export function ExpandedProductModal({
   images: (string | StaticImageData)[];
 }) {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [zoomLevel, setZoomLevel] = useState(1); // Estado para o nível de zoom
+  const [zoomLevel, setZoomLevel] = useState(1);
 
   const handlePreviousSlide = () => {
     setCurrentSlide((prev) => (prev === 0 ? images.length - 1 : prev - 1));
@@ -29,13 +30,35 @@ export function ExpandedProductModal({
   };
 
   const handleWheel = (event: React.WheelEvent<HTMLDivElement>) => {
-    const delta = event.deltaY > 0 ? -0.1 : 0.1; // Diminui ou aumenta o zoom
-    setZoomLevel((prev) => Math.min(Math.max(prev + delta, 1), 3)); // Limita o zoom entre 1x e 3x
+    const delta = event.deltaY > 0 ? -0.1 : 0.1;
+    setZoomLevel((prev) => Math.min(Math.max(prev + delta, 1), 3));
+  };
+
+  const increaseZoom = () => {
+    setZoomLevel((prev) => Math.min(prev + 0.1, 3));
+  };
+
+  const decreaseZoom = () => {
+    setZoomLevel((prev) => Math.max(prev - 0.1, 1));
   };
 
   return (
     <DialogContent className="flex h-full w-full items-start justify-center">
-      <div className="max-h-[746px] max-w-[620px] space-y-4">
+       <div className="absolute top-4 left-4 flex flex-col space-y-2 ">
+          <Button
+            onClick={increaseZoom}
+            className="bg-transparent text-[#4d4d4d] shadow-none flex items-center justify-center hover:bg-transparent"
+          >
+            <Plus size={32} />
+          </Button>
+          <Button
+            onClick={decreaseZoom}
+            className="bg-transparent text-[#4d4d4d]  shadow-none flex items-center justify-center hover:bg-transparent"
+          >
+            <Minus size={32} />
+          </Button>
+        </div>
+      <div className="max-h-[746px] max-w-[620px] space-y-4 relative">
         <Carousel>
           <CarouselContent
             className="flex"
@@ -46,8 +69,8 @@ export function ExpandedProductModal({
             {images.map((image, index) => (
               <CarouselItem key={index}>
                 <div
-                  className="overflow-hidden" // Para esconder a parte da imagem que extrapola os limites
-                  onWheel={handleWheel} // Zoom ao usar a roda do mouse
+                  className="overflow-hidden"
+                  onWheel={handleWheel}
                 >
                   <Image
                     src={image}
@@ -56,29 +79,34 @@ export function ExpandedProductModal({
                     height={788}
                     alt={`Imagem do produto ${index + 1}`}
                     style={{
-                      transform: `scale(${zoomLevel})`, // Aplica o zoom
-                      transition: 'transform 0.2s ease', // Suaviza o zoom
+                      transform: `scale(${zoomLevel})`,
+                      transition: 'transform 0.2s ease',
                     }}
                   />
                 </div>
               </CarouselItem>
             ))}
           </CarouselContent>
-
-          <CarouselPrevious
-            onClick={handlePreviousSlide}
-            className="absolute left-2 top-1/2 -translate-y-1/2 transform cursor-pointer"
-          ></CarouselPrevious>
-          <CarouselNext
-            onClick={handleNextSlide}
-            className="absolute right-2 top-1/2 -translate-y-1/2 transform cursor-pointer"
-          >
-            &#9654;
-          </CarouselNext>
         </Carousel>
 
+        {/* Botões de zoom no canto superior esquerdo */}
+        <div className="absolute top-4 left-4 flex flex-col space-y-2 lg:hidden xl:hidden md:hidden">
+          <Button
+            onClick={increaseZoom}
+            className="bg-black text-white p-2 rounded-full w-8 h-8 flex items-center justify-center"
+          >
+            +
+          </Button>
+          <Button
+            onClick={decreaseZoom}
+            className="bg-black text-white p-2 rounded-full w-8 h-8 flex items-center justify-center"
+          >
+            -
+          </Button>
+        </div>
+
         {/* Miniaturas */}
-        <div className="flex items-center justify-center space-x-3">
+        <div className="flex items-center justify-center space-x-3 mt-4">
           {images.map((image, index) => (
             <div
               key={index}

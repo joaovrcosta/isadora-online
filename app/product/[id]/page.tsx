@@ -10,6 +10,10 @@ import ProductImages from '@/components/product/product-images';
 import { useState } from 'react';
 import { formatCurrencyARS } from '@/lib/utils';
 import isaClubLogo from '@/public/icons/ISACLUB-logo-100.webp'
+import { ProductItem } from '@/components/product-item';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/shadcn/ui/carousel';
+import { CarouselComponent } from '@/components/show-more-products';
+import { mockProducts } from '@/app/_mocks/products';
 
 const product = {
   sku: '48611201',
@@ -52,7 +56,8 @@ export default function ProductPage() {
   };
 
   return (
-    <div className="mt-[76px] flex flex-col items-center justify-center md:mt-24 lg:mt-12 lg:flex-row">
+   <div>
+     <div className="mt-[76px] flex flex-col items-center justify-center md:mt-24 lg:mt-12 lg:flex-row">
       <div className="flex flex-col md:flex-row lg:flex-row">
         <ProductImages images={product.images} />
 
@@ -89,12 +94,12 @@ export default function ProductPage() {
           <h1 className="mb-4 text-[14px] font-normal tracking-[2px] text-gray-900 md:text-[22px] md:font-bold lg:text-[22px] lg:font-bold">
             {product.name}
           </h1>
-          <div className="md:max-w-[456px] mb-6 max-w-full border-b border-gray-200 pl-2 text-lg text-gray-900 md:pb-10 lg:pb-10 lg:pl-0">
-  <div className="flex items-center space-x-4">
+          <div className="md:max-w-[456px] mb-6 max-w-full border-b border-gray-200  text-lg text-gray-900 md:pb-10 lg:pb-10 lg:pl-0">
+  <div className="lg:flex md:flex xl:flex hidden items-center justify-start space-x-4">
     {/* Exibe preço original com o risco (strikethrough) */}
     {product.discount ? (
       <>
-        <span className="line-through text-gray-500">${formatCurrencyARS(product.price)}</span>
+        <span className="line-through text-gray-500">{formatCurrencyARS(product.price)}</span>
         <span className="text-black font-semibold">{formatCurrencyARS(product.discountPrice)}</span>
       </>
     ) : (
@@ -111,9 +116,9 @@ export default function ProductPage() {
     )}
   </div>
 
-  <div className='bg-[#eeeeee]  mt-5 px-3 py-1 rounded flex items-center justify-start  w-[280px] gap-3'>
+  <div className='bg-[#eeeeee]  mt-5 px-3 py-1 rounded-lg flex items-center justify-start w-full gap-3 mb-5'>
   <Image src={isaClubLogo} alt="" height={13} width={63} className='h-[12px]' />
-  <span className='text-[14px] text-red-600'>Registrate y sumá puntos!</span>
+  <span className='lg:text-[14px] xl:text-[14px] md:text-[14px] text-[12px] text-red-600'>Registrate y sumá puntos!</span>
 </div>
 
 </div>
@@ -151,10 +156,10 @@ export default function ProductPage() {
           </Button>
 
           <div className='mb-10'>
-            <span className='text-xs font-bold'>MÁS OPCIONES DISPONIBLES</span>
+            <span className='text-[11px] tracking-[2px] font-semibold'>MÁS OPCIONES DISPONIBLES:</span>
             <div className='flex space-x-2 mt-2'>
-            <div className='h-[24px] w-[24px] bg-amber-200 rounded-full cursor-pointer'></div>
-            <div className='h-[24px] w-[24px] bg-black rounded-full cursor-pointer'></div>
+            <div className='h-[28px] w-[28px] bg-[#84754e] rounded-full cursor-pointer'></div>
+            <div className='h-[28px] w-[28px] bg-black rounded-full cursor-pointer'></div>
             </div>
           </div>
 
@@ -225,16 +230,30 @@ export default function ProductPage() {
         </section>
       </div>
 
+
       <div className="fixed bottom-0 left-0 right-0 z-10 bg-white shadow-md md:hidden">
         <div className="flex items-center justify-between px-4 py-2">
-          <div className="text-[14px] text-lg tracking-[2px] text-black">
-            ${product.price}
+          <div>
+            <span className="text-[14px] text-lg tracking-[2px] text-black">${product.price}</span>
           </div>
           <Button className="h-[45px] w-[200px] rounded-none bg-black text-[14px]">
             ADICIONAR AO CARRINHO
           </Button>
         </div>
       </div>
+
+
+ 
     </div>
+
+    <div className='mt-20 lg:block xl:block hidden'>
+    <div className='flex items-center justify-center mb-12'>
+      <h2 className='text-[24px] tracking-[2px] font-medium'>Productos Similares</h2>
+    </div>
+    <div>
+    <CarouselComponent mockProducts={mockProducts} />
+    </div>
+    </div>
+   </div>
   );
 }
