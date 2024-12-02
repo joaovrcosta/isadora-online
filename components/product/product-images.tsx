@@ -8,7 +8,7 @@ import {
   CarouselPrevious,
 } from '../shadcn/ui/carousel';
 import { Dialog, DialogTrigger } from '../shadcn/ui/dialog';
-import { Maximize2 } from 'lucide-react';
+import { Expand } from 'lucide-react';
 import { ExpandedProductModal } from '../modalds/expandedProductModal';
 
 const ProductImages = ({
@@ -17,6 +17,7 @@ const ProductImages = ({
   images: (string | StaticImageData)[];
 }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isHovered, setIsHovered] = useState(false); // Adicionando o estado de hover
 
   const handleNextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % images.length);
@@ -31,7 +32,11 @@ const ProductImages = ({
   };
 
   return (
-    <div className="flex flex-col space-x-0 pr-0 md:flex-row md:space-x-3 md:pr-6 lg:flex-row lg:space-x-3 lg:pr-6">
+    <div
+      className="flex flex-col space-x-0 pr-0 md:flex-row md:space-x-3 md:pr-6 lg:flex-row lg:space-x-3 lg:pr-6"
+      onMouseEnter={() => setIsHovered(true)} 
+      onMouseLeave={() => setIsHovered(false)} 
+    >
       <div className="block w-full md:hidden lg:hidden">
         <Carousel>
           <CarouselContent
@@ -56,16 +61,21 @@ const ProductImages = ({
             ))}
           </CarouselContent>
 
-          <CarouselPrevious
-            onClick={handlePreviousSlide}
-            className="absolute left-2 top-1/2 -translate-y-1/2 transform cursor-pointer"
-          ></CarouselPrevious>
-          <CarouselNext
-            onClick={handleNextSlide}
-            className="absolute right-2 top-1/2 -translate-y-1/2 transform cursor-pointer"
-          >
-            &#9654;
-          </CarouselNext>
+          {isHovered && ( 
+  <>
+    <CarouselPrevious
+      onClick={handlePreviousSlide}
+      className="absolute left-2 top-1/2 -translate-y-1/2 transform cursor-pointer opacity-0 -translate-x-4 transition-all duration-300 hover:opacity-100 hover:translate-x-0"
+    />
+    <CarouselNext
+      onClick={handleNextSlide}
+      className="absolute right-2 top-1/2 -translate-y-1/2 transform cursor-pointer opacity-0 translate-x-4 transition-all duration-300 hover:opacity-100 hover:translate-x-0"
+    >
+      &#9654;
+    </CarouselNext>
+  </>
+)}
+
         </Carousel>
 
         <ul className="mt-4 flex justify-center space-x-2">
@@ -84,20 +94,23 @@ const ProductImages = ({
 
       <div className="hidden flex-col items-center space-y-3 md:flex md:items-start lg:flex">
         {images.map((image, index) => (
-          <div
-            key={index}
-            onClick={() => setCurrentSlide(index)}
-            className={`w-[110px] cursor-pointer ${currentSlide === index ? 'border-2 border-black' : 'border-transparent'}`}
-          >
-            <Image
-              src={image}
-              width={110}
-              height={100}
-              alt={`Imagem ${index + 1}`}
-            />
-          </div>
+        <div
+        key={index}
+        onClick={() => setCurrentSlide(index)}
+        className={`w-[110px] cursor-pointer ${
+          currentSlide === index ? 'border-[1px] border-black' : 'border-transparent'
+        } hover:shadow-[inset_10px_0_8px_rgba(0,0,0,0.8),inset_-10px_0_8px_rgba(0,0,0,0.3)]`}
+      >
+        <Image
+          src={image}
+          width={110}
+          height={100}
+          alt={`Imagem ${index + 1}`}
+        />
+      </div>
         ))}
       </div>
+
       <section className="flex hidden items-center justify-center md:block lg:block">
         <div className="relative h-auto max-w-[616px]">
           <Carousel>
@@ -121,23 +134,28 @@ const ProductImages = ({
               ))}
             </CarouselContent>
 
-            <CarouselPrevious
-              onClick={handlePreviousSlide}
-              className="absolute left-2 top-1/2 -translate-y-1/2 transform cursor-pointer"
-            ></CarouselPrevious>
-            <CarouselNext
-              onClick={handleNextSlide}
-              className="absolute right-2 top-1/2 -translate-y-1/2 transform cursor-pointer"
-            >
-              &#9654;
-            </CarouselNext>
+            {isHovered && (
+              <>
+                <CarouselPrevious
+                iconColor='lightPink'
+                  onClick={handlePreviousSlide}
+                  className="absolute left-2 top-1/2 -translate-y-1/2 transform cursor-pointer bg-transparent border-none shadow-none hover:bg-transparent h-[52px] w-[52px]"
+                />
+                <CarouselNext
+                iconColor='lightPink'
+                  onClick={handleNextSlide}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 transform cursor-pointer bg-transparent shadow-none hover:bg-transparent border-none h-[52px] w-[52px]"
+                >
+                  &#9654;
+                </CarouselNext>
+              </>
+            )}
           </Carousel>
 
-          {/* Botão fixo de expandir */}
           <Dialog>
             <DialogTrigger>
-              <div className="absolute bottom-8 right-2 rounded-full bg-white p-2 shadow-lg hover:bg-gray-200">
-                <Maximize2 className="text-black" size={24} />
+              <div className="absolute bottom-8 right-2 rounded-full bg-transparent p-2 hover:bg-gray-200 shadow-none hover:bg-transparent">
+                <Expand className="text-black" size={32} strokeWidth={0.5} />
               </div>
             </DialogTrigger>
 

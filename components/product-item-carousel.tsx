@@ -66,9 +66,6 @@ export function ProductItemCarousel({ name, price, images, colors }: ProductItem
             </span>
             <p className="text-[11px] font-medium tracking-[2px]">${price}</p>
           </div>
-          <button className="rounded-md p-2">
-            <Heart size={20} />
-          </button>
         </div>
       </div>
     </div>

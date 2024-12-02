@@ -69,7 +69,7 @@ export function ProductItem({ name, price, images, colors }: ProductItemProps) {
             <p className="text-[11px] font-medium tracking-[2px]">{price}</p>
           </div>
           <button className="rounded-md p-2">
-            <Heart size={20} />
+            <Heart size={20} strokeWidth={0.8} />
           </button>
         </div>
 

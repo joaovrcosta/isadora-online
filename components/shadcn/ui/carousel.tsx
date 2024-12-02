@@ -196,8 +196,8 @@ CarouselItem.displayName = 'CarouselItem';
 
 const CarouselPrevious = React.forwardRef<
   HTMLButtonElement,
-  React.ComponentProps<typeof Button>
->(({ className, variant = 'outline', size = 'icon', ...props }, ref) => {
+  React.ComponentProps<typeof Button> & { iconColor?: string }
+>(({ className, variant = 'outline', size = 'icon', iconColor = 'black', ...props }, ref) => {
   const { orientation, scrollPrev, canScrollPrev } = useCarousel();
 
   return (
@@ -212,11 +212,10 @@ const CarouselPrevious = React.forwardRef<
           : '-top-12 left-1/2 -translate-x-1/2 rotate-90',
         className,
       )}
-      // disabled={!canScrollPrev}
       onClick={scrollPrev}
       {...props}
     >
-      <ChevronLeft className="h-[42px] w-[42px] text-black" />
+      <ChevronLeft className={`h-[42px] w-[42px] text-${iconColor}`} />
       <span className="sr-only">Previous slide</span>
     </Button>
   );
@@ -225,8 +224,8 @@ CarouselPrevious.displayName = 'CarouselPrevious';
 
 const CarouselNext = React.forwardRef<
   HTMLButtonElement,
-  React.ComponentProps<typeof Button>
->(({ className, variant = 'outline', size = 'icon', ...props }, ref) => {
+  React.ComponentProps<typeof Button> & { iconColor?: string }
+>(({ className, variant = 'outline', size = 'icon', iconColor = 'black', ...props }, ref) => {
   const { orientation, scrollNext, canScrollNext } = useCarousel();
 
   return (
@@ -245,13 +244,12 @@ const CarouselNext = React.forwardRef<
       onClick={scrollNext}
       {...props}
     >
-      <ChevronRight className="h-[42px] w-[42px] text-black" />
+      <ChevronRight className={`h-[42px] w-[42px] text-${iconColor}`} />
       <span className="sr-only">Next slide</span>
     </Button>
   );
 });
 CarouselNext.displayName = 'CarouselNext';
-
 
 const CarouselNext_2 = React.forwardRef<
   HTMLButtonElement,

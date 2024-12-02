@@ -11,16 +11,15 @@ import { useState } from 'react';
 import { formatCurrencyARS } from '@/lib/utils';
 import isaClubLogo from '@/public/icons/ISACLUB-logo-100.webp'
 import { ProductItem } from '@/components/product-item';
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/shadcn/ui/carousel';
 import { CarouselComponent } from '@/components/show-more-products';
 import { mockProducts } from '@/app/_mocks/products';
 
 const product = {
   sku: '48611201',
   name: 'Clutch con correa de cadena',
-  price: 59000,
+  price: '59.000',
   discount: 15,
-  discountPrice: 46000,
+  discountPrice: '46.000',
   description:
     'Clutch con cierre a presión, con correa larga de cadena. Forro interior.',
   extraDescription:
@@ -61,7 +60,7 @@ export default function ProductPage() {
       <div className="flex flex-col md:flex-row lg:flex-row">
         <ProductImages images={product.images} />
 
-        <section className="md:lg-8 ml-0 flex h-full max-w-[760px] flex-col justify-start px-4 md:w-[43%] lg:ml-8 lg:w-[43%]">
+        <section className="md:lg-8 ml-0 flex h-full max-w-[760px] flex-col justify-start px-4 md:w-[43%] lg:ml-4 lg:w-[43%]">
           <div className="flex items-center justify-between">
             <div className="mb-4 flex items-center gap-2">
               <span className="text-[11px] tracking-[2px] text-gray-300">
@@ -77,6 +76,7 @@ export default function ProductPage() {
                   <Heart
                     size={32}
                     className="h-[24px] w-[24px] lg:h-[32px] lg:w-[32px]"
+                    strokeWidth={0.8}
                   />
                 </button>
               </div>
@@ -85,6 +85,7 @@ export default function ProductPage() {
                   <Share2
                     size={32}
                     className="h-[24px] w-[24px] lg:h-[32px] lg:w-[32px]"
+                    strokeWidth={0.8}
                   />
                 </button>
               </div>
@@ -96,17 +97,15 @@ export default function ProductPage() {
           </h1>
           <div className="md:max-w-[456px] mb-6 max-w-full border-b border-gray-200  text-lg text-gray-900 md:pb-10 lg:pb-10 lg:pl-0">
   <div className="lg:flex md:flex xl:flex hidden items-center justify-start space-x-4">
-    {/* Exibe preço original com o risco (strikethrough) */}
     {product.discount ? (
       <>
-        <span className="line-through text-gray-500">{formatCurrencyARS(product.price)}</span>
-        <span className="text-black font-semibold">{formatCurrencyARS(product.discountPrice)}</span>
+        <span className="line-through text-gray-500">$ {product.price}</span>
+        <span className="text-black font-medium">$ {product.discountPrice}</span>
       </>
     ) : (
       <span>${product.price}</span>
     )}
     
-    {/* Exibe a porcentagem de desconto se houver */}
     {product.discount && (
      <div className='bg-lightPink/30 px-3 py-1'>
        <span className="text-black text-sm font-bold">
