@@ -39,10 +39,10 @@ export const CarouselComponent = ({ mockProducts }: any) => {
         ))}
       </CarouselContent>
 
-      <CarouselPrevious className="absolute left-0 top-[50%] h-[52px] w-[52px] -translate-y-1/2 transform rounded-full bg-transparent p-2 text-white hover:bg-gray-800">
+      <CarouselPrevious className="absolute left-0 top-[40%] h-[62px] w-[62px] -translate-y-1/2 transform rounded-full border-none bg-transparent p-2 text-white shadow-none hover:bg-transparent">
         Previous
       </CarouselPrevious>
-      <CarouselNext className="absolute right-0 top-[50%] h-[52px] w-[52px] -translate-y-1/2 transform rounded-full bg-transparent p-2 text-white hover:bg-gray-800">
+      <CarouselNext className="absolute right-0 top-[40%] h-[62px] w-[62px] -translate-y-1/2 transform rounded-full border-none bg-transparent p-2 text-white shadow-none hover:bg-transparent">
         Next
       </CarouselNext>
     </Carousel>

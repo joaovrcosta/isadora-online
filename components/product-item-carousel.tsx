@@ -23,7 +23,12 @@ function slugify(text: string): string {
     .replace(/-+$/, '');
 }
 
-export function ProductItemCarousel({ name, price, images, colors }: ProductItemProps) {
+export function ProductItemCarousel({
+  name,
+  price,
+  images,
+  colors,
+}: ProductItemProps) {
   const [isHovered, setIsHovered] = useState(false);
   const [selectedColor, setSelectedColor] = useState(colors[0]?.value || '');
 
@@ -33,7 +38,7 @@ export function ProductItemCarousel({ name, price, images, colors }: ProductItem
   return (
     <div className="group relative w-full">
       <div
-        className="relative aspect-[4/5] w-full" // Ajustando para que a imagem preencha totalmente a largura
+        className="relative aspect-[4/5] w-full"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
@@ -41,18 +46,18 @@ export function ProductItemCarousel({ name, price, images, colors }: ProductItem
           <Image
             src={isHovered ? images.hover : images.default}
             alt={name}
-            layout="fill" // Faz a imagem preencher o espaço do contêiner
-            objectFit="cover" // Ajuste de imagem para preencher o espaço sem distorcer
+            layout="fill"
+            objectFit="cover"
             className="cursor-pointer object-cover transition-all duration-300"
           />
         </Link>
 
         <button
-          className={`absolute bottom-0 left-0 hidden w-full rounded-sm bg-[rgb(255,184,184)] py-3 text-sm font-medium text-black transition-opacity duration-300 lg:block ${
+          className={`absolute bottom-0 left-0 hidden w-full rounded-sm bg-[rgb(255,184,184)] py-3 text-sm font-medium uppercase text-black transition-opacity duration-300 lg:block ${
             isHovered ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          ADICIONAR AO CARRINHO
+          Añadir al carrito
         </button>
       </div>
 

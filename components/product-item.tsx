@@ -50,11 +50,11 @@ export function ProductItem({ name, price, images, colors }: ProductItemProps) {
         </Link>
 
         <button
-          className={`absolute bottom-0 left-0 hidden w-full rounded-sm bg-[rgb(255,184,184)] py-3 text-sm font-medium text-black transition-opacity duration-300 lg:block ${
+          className={`absolute bottom-0 left-0 hidden w-full rounded-sm bg-[rgb(255,184,184)] py-3 text-sm font-medium uppercase text-black transition-opacity duration-300 lg:block ${
             isHovered ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          ADICIONAR AO CARRINHO
+          Añadir al carrito
         </button>
       </div>
 

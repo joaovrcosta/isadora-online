@@ -50,8 +50,8 @@ const product = {
       'Pagá con Visa, MasterCard, Mercado Pago y Naranja plan Z en 3 cuotas sin interés en compras superiores a $30.000 y 6 cuotas sin interés en compras superiores a $60.000.',
   },
   colors: [
-    { value: 'green', label: 'Green', colorCode: '#88cc88' },
-    { value: 'brown', label: 'Brown', colorCode: '#a0522d' },
+    { value: 'green', label: 'Green', colorCode: '#000' },
+    // { value: 'brown', label: 'Brown', colorCode: '#a0522d' },
   ],
 };
 
@@ -64,17 +64,17 @@ export default function ProductPage() {
 
   return (
     <div>
-      <div className="mt-[76px] flex flex-col items-center justify-center md:mt-24 lg:mt-12 lg:flex-row">
+      <div className="mt-[76px] flex flex-col items-center justify-center md:mt-24 md:px-4 lg:mt-12 lg:flex-row lg:px-4 xl:px-4">
         <div className="flex flex-col md:flex-row lg:flex-row">
           <ProductImages images={product.images} />
 
-          <section className="md:lg-8 ml-0 flex h-full max-w-[760px] flex-col justify-start px-4 md:w-[43%] lg:ml-4 lg:w-[43%]">
+          <section className="md:lg-8 ml-0 flex h-full max-w-[760px] flex-col justify-start px-2 md:w-[43%] lg:ml-4 lg:w-[43%]">
             <div className="flex items-center justify-between">
               <div className="mb-4 flex items-center gap-2">
-                <span className="text-[11px] tracking-[2px] text-gray-300">
+                <span className="text-[11px] tracking-[1.5px] text-[#999]">
                   SKU
                 </span>
-                <span className="text-[11px] tracking-[2px] text-gray-300">
+                <span className="text-[11px] tracking-[1.5px] text-[#999]">
                   {product.sku}
                 </span>
               </div>
@@ -100,17 +100,17 @@ export default function ProductPage() {
               </div>
             </div>
 
-            <h1 className="mb-4 text-[14px] font-normal tracking-[2px] text-gray-900 md:text-[22px] md:font-bold lg:text-[22px] lg:font-bold">
+            <h1 className="mb-2 text-[14px] font-normal tracking-[2px] text-gray-900 md:text-[22px] md:font-bold lg:text-[22px] lg:font-bold">
               {product.name}
             </h1>
-            <div className="mb-6 max-w-full border-b border-gray-200 text-lg text-gray-900 md:max-w-[456px] md:pb-10 lg:pb-10 lg:pl-0">
+            <div className="lg:pb-- mb-6 max-w-full border-b border-gray-200 text-lg text-gray-900 md:max-w-[456px] md:pb-0 lg:pl-0">
               <div className="hidden items-center justify-start space-x-4 md:flex lg:flex xl:flex">
                 {product.discount ? (
                   <>
-                    <span className="text-gray-500 line-through">
+                    <span className="tracking-[2px] text-gray-500 line-through">
                       $ {product.price}
                     </span>
-                    <span className="font-medium text-black">
+                    <span className="font-normal tracking-[2px] text-black">
                       $ {product.discountPrice}
                     </span>
                   </>
@@ -127,23 +127,25 @@ export default function ProductPage() {
                 )}
               </div>
 
-              <div className="mb-5 mt-5 flex w-full items-center justify-start gap-3 rounded-lg bg-[#eeeeee] px-3 py-1">
-                <Image
-                  src={isaClubLogo}
-                  alt=""
-                  height={13}
-                  width={63}
-                  className="h-[12px]"
-                />
-                <span className="text-[12px] text-red-600 md:text-[14px] lg:text-[14px] xl:text-[14px]">
-                  Registrate y sumá puntos!
-                </span>
+              <div className="mb-5 mt-5 flex w-full items-center justify-start">
+                <div className="flex items-center gap-3 rounded-lg bg-[#eeeeee] px-[14px] py-[4px]">
+                  <Image
+                    src={isaClubLogo}
+                    alt=""
+                    height={13}
+                    width={63}
+                    className="h-[12px]"
+                  />
+                  <span className="text-[12px] font-medium text-[#d32951] md:text-[14px] lg:text-[16px] xl:text-[16px]">
+                    ¡Registrate y sumá puntos!
+                  </span>
+                </div>
               </div>
             </div>
 
             <div className="mb-6 space-y-2">
-              <div className="mb-6 space-y-3">
-                <h4 className="text-xs font-bold text-gray-800">DESCRIÇÃO</h4>
+              <div className="mb-6 space-y-1">
+                <h4 className="text-xs font-bold text-gray-800">DESCRIPCIÓN</h4>
 
                 <p className="text-xs text-gray-700">{product.description}</p>
                 {showMore && (
@@ -163,8 +165,11 @@ export default function ProductPage() {
               </button>
             </div>
 
-            <Button className="mb-10 mt-4 hidden h-[50px] w-[250px] rounded-none text-[16px] md:block lg:block">
-              ADICIONAR AO CARRINHO
+            <Button
+              className="mb-10 mt-4 hidden h-[50px] w-[250px] rounded-none text-[16px] uppercase hover:bg-lightPink hover:text-black md:block lg:block"
+              title="Añadir al carrito"
+            >
+              Añadir al carrito
             </Button>
 
             <div className="mb-10">
@@ -265,7 +270,7 @@ export default function ProductPage() {
                 ${product.price}
               </span>
             </div>
-            <Button className="h-[45px] w-[200px] rounded-none bg-black text-[14px]">
+            <Button className="h-[45px] w-[200px] rounded-none bg-black text-[14px] hover:bg-lightPink">
               ADICIONAR AO CARRINHO
             </Button>
           </div>
